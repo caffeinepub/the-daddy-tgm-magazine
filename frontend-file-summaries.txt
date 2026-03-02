@@ -1,0 +1,15 @@
+{
+  "frontend/src/App.tsx": "Main application component that sets up TanStack Router with five routes (Home, Reader, Archive, Soapbox, About) wrapped in a Layout component with an Outlet.",
+  "frontend/src/components/Masthead.tsx": "Magazine masthead component displaying \"THE DADDY TGM\" in large retro serif typography with decorative borders, tagline, and a subtle flicker animation.",
+  "frontend/src/components/Navigation.tsx": "Responsive navigation bar with five links (Home, Read Issue, Archive, The Soapbox, About), active route highlighting, and a mobile hamburger menu.",
+  "frontend/src/components/Layout.tsx": "Full-page layout wrapper that includes the Masthead, Navigation, main content area, and a footer with attribution and caffeine.ai link.",
+  "frontend/src/utils/issueGenerator.ts": "Generates a deterministic 50-page issue from a numeric seed using the seeded PRNG, with page 50 always being a back-page item.",
+  "frontend/src/utils/soapboxUtils.ts": "localStorage-based utilities for the Soapbox community page: loading/saving posts, liking posts, adding replies, generating fake 70s usernames, and formatting timestamps.",
+  "frontend/src/components/PageRenderer.tsx": "Renders a single magazine page based on its content type (movie poster, comic strip, fake ad, review, letter, or back page) with retro-styled layouts; the FakeAdPage component no longer references the removed asciiArt field.",
+  "frontend/src/pages/HomePage.tsx": "Home page showing today's issue number/date, a featured cover poster, a \"Read Today's Issue\" CTA button, and 4 content teasers linking into the reader.",
+  "frontend/src/pages/ReaderPage.tsx": "50-page magazine reader with Previous/Next navigation, a page progress indicator, jump-to-page controls, and animated page transitions.",
+  "frontend/src/pages/ArchivePage.tsx": "Archive page that reads past issues from localStorage and displays them newest-first with issue number, date, and a \"Read Issue\" link.",
+  "frontend/src/pages/SoapboxPage.tsx": "Community social feed page (\"The Soapbox\") with post composer, like buttons, nested reply threads, and all data persisted to localStorage.",
+  "frontend/src/pages/AboutPage.tsx": "Satirical \"About Us\" page with a fake founding story, five staff bios with absurd credentials, publication details, and a humorous mission statement.",
+  "frontend/src/data/contentLibrary.ts": "Complete content library with 200+ satirical items across six categories: 30 spoof movie posters, 30 comic strips, 37 fake product ads, 40 spoof reviews, 30 letters to the editor, and 20 back-page items, all written in 1970s Mad Magazine satirical style."
+}

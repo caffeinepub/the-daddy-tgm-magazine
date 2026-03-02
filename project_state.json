@@ -1,0 +1,119 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "A fully functional retro online magazine called 'The Daddy TGM' (The Groovy Magazine) — a satirical 1970s-style comedy magazine built in pure HTML/CSS/JS with daily seeded issues, 50-page reader, spoof movie posters, fake ads, comic strips, movie reviews, letters to the editor, an archive system, a community soapbox (localStorage-based social feed), and a fake about page.",
+  "architectural_notes": [
+    "Pure HTML/CSS/JS — no backend; localStorage used for archive tracking and community posts",
+    "Seeded RNG (linear congruential generator) used so each daily issue is unique but deterministic — same date always yields same content",
+    "Issue number derived from days since Jan 1, 2024; seed derived from YYYYMMDD integer",
+    "50-page magazine reader with paginated navigation; pages generated dynamically from content pools",
+    "Content pools: 20 movie spoofs, 15 spoof ads, 10 letters, 8 comic strips, 15 classifieds — all rendered via JS template functions",
+    "Google Fonts used: Abril Fatface, Playfair Display, Special Elite, Oswald"
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Aged yellowed newsprint paper texture background tile, grainy and slightly uneven (newsprint-texture.dim_512x512.png)\n- THE DADDY TGM retro 1970s magazine masthead logo, bold funky serif lettering in orange and brown on cream background (tgm-masthead.dim_800x200.png)\n- Retro 1970s decorative horizontal divider ornament in burnt sienna and mustard yellow (retro-divider.dim_600x40.png)\n- Groovy 1970s style starburst badge graphic in orange and yellow (starburst-badge.dim_200x200.png)",
+  "existing_features": [
+    {
+      "id": "feature-apply-a-1970s-retro-visual-theme-across-the-entire-app-warm-browns-oranges-yellows-mustard-avocado-greens-and-burnt-sienna-color-palette-retro-serif-fonts-for-headings-masthead-typewriter-style-monospace-font-for-body-text-css-simulated-aged-paper-newsprint-texture-background-grain-slight-yellowing-subtle-vignette-decorative-retro-borders-groovy-dividers-and-period-appropriate-ornamental-elements",
+      "title": "Apply a 1970s retro visual theme across the entire app: warm browns, oranges, yellows, mustard, avocado greens, and burnt sienna color palette; retro serif fonts for headings/masthead; typewriter-style monospace font for body text; CSS-simulated aged paper/newsprint texture background (grain, slight yellowing, subtle vignette); decorative retro borders, groovy dividers, and period-appropriate ornamental elements.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-display-a-prominent-magazine-masthead-at-the-top-of-every-page-reading-the-daddy-tgm-in-large-bold-retro-lettering-with-the-tagline-the-grooviest-rag-on-the-rack-beneath-it-styled-as-a-1970s-magazine-logo",
+      "title": "Display a prominent magazine masthead at the top of every page reading 'THE DADDY \"TGM\"' in large, bold retro lettering with the tagline 'The Grooviest Rag on the Rack' beneath it, styled as a 1970s magazine logo.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-top-navigation-bar-with-five-links-home-read-issue-archive-the-soapbox-and-about-style-navigation-in-the-retro-1970s-theme-with-period-appropriate-typography-and-hover-effects",
+      "title": "Implement a top navigation bar with five links: Home, Read Issue, Archive, The Soapbox, and About. Style navigation in the retro 1970s theme with period-appropriate typography and hover effects.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-date-based-daily-issue-system-use-javascript-s-new-date-to-compute-a-deterministic-daily-issue-number-e-g-days-since-a-fixed-epoch-date-each-calendar-day-maps-to-exactly-one-issue-number-store-the-list-of-accessed-issue-dates-in-localstorage-so-the-archive-can-track-all-previously-viewed-issues",
+      "title": "Implement a date-based daily issue system: use JavaScript's `new Date()` to compute a deterministic daily issue number (e.g., days since a fixed epoch date). Each calendar day maps to exactly one issue number. Store the list of accessed issue dates in localStorage so the archive can track all previously viewed issues.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-a-seeded-pseudo-random-content-generation-system-given-a-numeric-seed-the-daily-issue-number-produce-a-consistent-repeatable-sequence-of-content-selections-for-each-of-the-50-pages-use-a-seedable-prng-e-g-a-simple-mulberry32-or-xorshift-implementation-in-js-so-the-same-seed-always-yields-the-same-50-page-layout",
+      "title": "Build a seeded pseudo-random content generation system: given a numeric seed (the daily issue number), produce a consistent, repeatable sequence of content selections for each of the 50 pages. Use a seedable PRNG (e.g., a simple mulberry32 or xorshift implementation in JS) so the same seed always yields the same 50-page layout.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-large-content-library-with-at-least-200-unique-content-items-spread-across-the-following-categories-all-written-in-1970s-mad-magazine-national-lampoon-satirical-style-with-adult-humor-and-cussing-allowed-satire-of-fictional-scenarios-and-movies-no-real-person-defamation-1-spoof-movie-poster-fake-ad-panels-parody-movie-concepts-with-fake-taglines-fake-credits-and-humorous-ascii-art-or-css-styled-poster-boxes-2-movie-spoof-comic-strip-panels-css-div-based-comic-panels-with-stick-figure-style-characters-acting-out-parody-movie-scenes-with-funny-dialogue-3-fake-1970s-product-advertisements-spoof-products-like-hair-tonics-cigarettes-cars-household-goods-with-outrageous-claims-4-sarcastic-spoof-movie-reviews-5-funny-fake-letters-to-the-editor-6-back-page-full-bleed-spoof-ads-or-jokes",
+      "title": "Create a large content library with at least 200 unique content items spread across the following categories, all written in 1970s Mad Magazine / National Lampoon satirical style with adult humor and cussing allowed (satire of fictional scenarios and movies, no real-person defamation): (1) Spoof movie poster/fake ad panels — parody movie concepts with fake taglines, fake credits, and humorous ASCII art or CSS-styled poster boxes. (2) Movie spoof comic strip panels — CSS div-based comic panels with stick-figure-style characters acting out parody movie scenes with funny dialogue. (3) Fake 1970s product advertisements — spoof products like hair tonics, cigarettes, cars, household goods with outrageous claims. (4) Sarcastic spoof movie reviews. (5) Funny fake letters to the editor. (6) Back-page full-bleed spoof ads or jokes.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-the-50-page-magazine-reader-with-page-by-page-navigation-each-page-renders-one-content-item-from-the-seeded-daily-issue-show-page-x-of-50-indicator-provide-previous-and-next-buttons-the-final-page-page-50-is-always-the-back-page-content-type-apply-a-css-page-turn-or-fade-transition-between-pages",
+      "title": "Build the 50-page magazine reader with page-by-page navigation. Each page renders one content item from the seeded daily issue. Show 'Page X of 50' indicator. Provide Previous and Next buttons. The final page (page 50) is always the back-page content type. Apply a CSS page-turn or fade transition between pages.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-the-home-page-showing-today-s-issue-cover-large-masthead-issue-number-date-a-seeded-featured-spoof-movie-poster-as-the-cover-image-a-read-today-s-issue-cta-button-and-a-grid-of-3-4-featured-content-teasers-from-the-current-issue-truncated-snippets-of-ads-reviews-or-comic-titles-with-read-more-links-into-the-reader-at-the-correct-page",
+      "title": "Build the Home page showing: today's issue cover (large masthead, issue number, date, a seeded featured spoof movie poster as the 'cover image'), a 'Read Today's Issue' CTA button, and a grid of 3–4 featured content teasers from the current issue (truncated snippets of ads, reviews, or comic titles with 'Read More' links into the reader at the correct page).",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-the-archive-page-listing-all-previously-visited-issue-dates-stored-in-localstorage-each-entry-shows-the-issue-date-issue-number-and-a-read-issue-link-sort-entries-newest-first-if-no-past-issues-exist-beyond-today-show-a-message-like-come-back-tomorrow-for-more-groovy-content-baby",
+      "title": "Build the Archive page listing all previously visited issue dates stored in localStorage. Each entry shows the issue date, issue number, and a 'Read Issue' link. Sort entries newest-first. If no past issues exist beyond today, show a message like 'Come back tomorrow for more groovy content, baby!'",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-the-soapbox-community-page-styled-like-a-social-feed-x-twitter-layout-but-fully-themed-in-1970s-retro-style-users-can-type-and-submit-posts-stored-in-localstorage-each-post-displays-a-fake-auto-generated-1970s-style-username-a-timestamp-and-the-post-text-each-post-has-a-groovy-like-button-showing-a-count-posts-support-a-reply-thread-clicking-reply-opens-an-inline-reply-input-and-shows-nested-replies-beneath-the-post-the-feed-scrolls-vertically-with-newest-posts-at-the-top",
+      "title": "Build 'The Soapbox' community page styled like a social feed (X/Twitter layout) but fully themed in 1970s retro style. Users can type and submit posts (stored in localStorage). Each post displays a fake auto-generated 1970s-style username, a timestamp, and the post text. Each post has a 'Groovy!' like button showing a count. Posts support a reply thread — clicking 'Reply' opens an inline reply input and shows nested replies beneath the post. The feed scrolls vertically with newest posts at the top.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-the-about-page-as-a-satirical-fake-about-us-page-written-entirely-in-1970s-voice-include-a-fake-founding-story-fake-staff-bios-editor-in-chief-staff-writers-ad-director-etc-with-absurd-credentials-a-fake-address-and-a-humorous-mission-statement-style-it-like-an-old-magazine-s-inside-cover-editorial-page",
+      "title": "Build the About page as a satirical fake 'About Us' page written entirely in 1970s voice. Include a fake founding story, fake staff bios (editor-in-chief, staff writers, ad director, etc.) with absurd credentials, a fake address, and a humorous mission statement. Style it like an old magazine's inside-cover editorial page.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-the-application-is-fully-responsive-but-optimized-primarily-for-desktop-reading-on-mobile-the-reader-should-stack-content-vertically-and-navigation-should-collapse-into-a-hamburger-menu-or-similar-compact-control",
+      "title": "Ensure the application is fully responsive but optimized primarily for desktop reading. On mobile, the reader should stack content vertically and navigation should collapse into a hamburger menu or similar compact control.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [],
+  "gameProjectType": "none",
+  "projectName": "The Daddy TGM",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

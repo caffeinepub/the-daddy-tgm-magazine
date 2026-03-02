@@ -1,0 +1,284 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "The Daddy TGM – Retro 1970s Satirical Online Magazine",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Apply 1970s retro visual theme with warm earth-tone palette, retro fonts, aged paper texture background, and decorative elements",
+      "acceptanceCriteria": [
+        "Color palette is strictly warm earth tones: browns, oranges, mustard yellows, avocado greens, burnt sienna — no cool blues or purples",
+        "Headings use a bold retro serif font reminiscent of 70s magazine mastheads",
+        "Body text uses a typewriter/monospace-style font",
+        "Background simulates aged newsprint via CSS (texture, grain, slight yellowing)",
+        "Decorative horizontal dividers and ornamental borders are used between sections"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Add 1970s retro theme CSS: import retro serif and monospace fonts (e.g., Cooper Black, Courier); define CSS custom properties for warm earth-tone color palette (browns, oranges, mustard yellows, avocado greens, burnt sienna); apply aged newsprint background using the generated image frontend/public/assets/generated/newsprint-texture.dim_512x512.png as a repeating tile with CSS grain filter, slight sepia overlay, and subtle vignette effect; add utility classes for decorative borders and retro dividers using the generated frontend/public/assets/generated/retro-divider.dim_600x40.png image"
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend Tailwind theme with 1970s color palette (brown, orange, mustard, avocado, burnt-sienna shades), retro font families (serif for headings, monospace for body), and custom background image utilities for newsprint texture and decorative dividers"
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Display prominent magazine masthead 'THE DADDY \"TGM\"' with tagline on all pages",
+      "acceptanceCriteria": [
+        "Masthead text 'THE DADDY \"TGM\"' is prominently displayed at the top",
+        "Tagline 'The Grooviest Rag on the Rack' appears below the masthead",
+        "Masthead uses oversized bold retro serif typography",
+        "Masthead is visible on all pages/routes"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Masthead.tsx",
+          "operation": "create",
+          "description": "Create Masthead component rendering the magazine logo using the generated image frontend/public/assets/generated/tgm-masthead.dim_800x200.png as a central image element, with 'THE DADDY \"TGM\"' text overlay in large retro serif font and 'The Grooviest Rag on the Rack' tagline below; style with warm retro colors and decorative border"
+        },
+        {
+          "path": "frontend/src/components/Layout.tsx",
+          "operation": "create",
+          "description": "Create Layout wrapper component that includes Masthead at the top and renders children content below; apply aged newsprint background and consistent padding/margins; this layout will wrap all page routes"
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wrap all route components with the Layout component so Masthead appears on every page"
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Implement top navigation bar with Home, Read Issue, Archive, The Soapbox, About links styled in retro theme",
+      "acceptanceCriteria": [
+        "Navigation contains exactly: Home, Read Issue, Archive, The Soapbox, About",
+        "Active route is visually highlighted",
+        "Navigation is styled with retro 70s aesthetic",
+        "All navigation links route to their respective pages"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Navigation.tsx",
+          "operation": "create",
+          "description": "Create Navigation component with links to Home (/), Read Issue (/reader), Archive (/archive), The Soapbox (/soapbox), About (/about); style with retro 70s fonts, warm colors, and hover effects; highlight active route using React Router's NavLink; include responsive hamburger collapse for mobile"
+        },
+        {
+          "path": "frontend/src/components/Layout.tsx",
+          "operation": "modify",
+          "description": "Include Navigation component below Masthead in Layout"
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Define routes for /, /reader, /archive, /soapbox, /about using React Router; ensure each route renders its respective page component"
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Implement date-based daily issue system computing deterministic issue numbers from current date and tracking in localStorage",
+      "acceptanceCriteria": [
+        "Today's issue number is computed deterministically from the current date",
+        "Same date always produces the same issue number",
+        "Each new date visited is saved to localStorage",
+        "Issue number is displayed on the Home and Reader pages"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/utils/issueUtils.ts",
+          "operation": "create",
+          "description": "Create utility functions: getIssueNumberFromDate(date: Date) computing days since a fixed epoch date (e.g., 1970-01-01) to return a deterministic issue number; getTodayIssueNumber() returning today's issue; saveIssueToArchive(date: Date, issueNumber: number) saving to localStorage; getArchivedIssues() retrieving all stored issues from localStorage sorted newest-first"
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Build seeded pseudo-random content generation system producing consistent 50-page layout per issue seed",
+      "acceptanceCriteria": [
+        "A seedable PRNG function is implemented in the frontend",
+        "Given the same date seed, the magazine always renders the same 50 pages",
+        "Different date seeds produce visibly different page orders and content selections",
+        "PRNG is used to shuffle/select from all content pools"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/utils/prng.ts",
+          "operation": "create",
+          "description": "Implement a seedable PRNG (e.g., mulberry32 or xorshift) that takes a numeric seed and returns a stateful random number generator; export a function createSeededRandom(seed: number) returning { random(), shuffle(array), pickN(array, n) } for deterministic pseudo-random operations"
+        },
+        {
+          "path": "frontend/src/utils/issueGenerator.ts",
+          "operation": "create",
+          "description": "Create generateIssuePages(seed: number) function using the seeded PRNG to select and order 50 content items from the content library; ensure page 50 is always a back-page item; return an array of 50 page objects each with { pageNumber, contentType, contentItem }"
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Create large content library with 200+ satirical items across spoof movie posters, comic strips, fake ads, reviews, letters, back-page content",
+      "acceptanceCriteria": [
+        "At least 200 distinct content items are defined across all categories combined",
+        "Each category has at least 20+ unique entries",
+        "Spoof movie posters include fake title, tagline, fake cast/credits, and ASCII or CSS art element",
+        "Comic strip panels have at least 2 dialogue-bearing 'panels' per strip, using CSS div layout",
+        "Fake product ads include product name, slogan, and humorous body copy",
+        "Spoof reviews include a movie title, star rating, and comedic review text",
+        "Letters to the editor include a fake name/location and a funny letter body",
+        "Back-page items are formatted as full-width/full-height page content"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/data/contentLibrary.ts",
+          "operation": "create",
+          "description": "Define a content library with 200+ items organized into arrays: spoofMoviePosters (30+ items with { title, tagline, cast, director, asciiArt }), comicStripPanels (30+ items with { title, panels: [{ dialogue, character }] }), fakeProductAds (40+ items with { productName, slogan, bodyCopy }), spoofReviews (40+ items with { movieTitle, rating, reviewText }), lettersToEditor (40+ items with { name, location, letterBody }), backPageItems (20+ items with { content }); all written in 1970s Mad Magazine satirical style with adult humor"
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Build 50-page magazine reader with page navigation, page indicator, and CSS page-turn transitions",
+      "acceptanceCriteria": [
+        "Reader displays 50 pages per issue",
+        "'Page X of 50' is shown at all times",
+        "Previous and Next buttons navigate between pages; Previous is disabled on page 1, Next on page 50",
+        "Page 50 always renders a back-page content item",
+        "A visible CSS transition (fade or slide) occurs when changing pages",
+        "Each page renders its content type with the appropriate layout template"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/ReaderPage.tsx",
+          "operation": "create",
+          "description": "Create ReaderPage component: read issue seed from URL param or use today's issue; generate 50 pages using issueGenerator; manage current page state (1-50); render 'Page X of 50' indicator; render Previous/Next buttons (disabled appropriately); apply CSS fade or slide transition on page change; render current page content using PageRenderer component"
+        },
+        {
+          "path": "frontend/src/components/PageRenderer.tsx",
+          "operation": "create",
+          "description": "Create PageRenderer component accepting { pageNumber, contentType, contentItem } and rendering the appropriate layout: spoofMoviePoster layout, comicStripPanel layout (CSS div-based panels), fakeProductAd layout, spoofReview layout, letterToEditor layout, backPage layout; style each with retro 70s theme and decorative elements using generated frontend/public/assets/generated/retro-divider.dim_600x40.png and frontend/public/assets/generated/starburst-badge.dim_200x200.png where appropriate"
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Build Home page with today's issue cover, featured spoof poster, CTA button, and content teasers",
+      "acceptanceCriteria": [
+        "Home page displays today's issue number and date",
+        "A cover-style spoof movie poster is shown as the featured cover",
+        "A 'Read Today's Issue' button navigates to the Reader at page 1",
+        "3–4 content teasers are shown below the cover",
+        "Each teaser links to the reader at the correct page number"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "create",
+          "description": "Create HomePage component: display today's issue number and date computed from issueUtils; use seeded PRNG to select a featured spoof movie poster as the cover image; render large cover section with masthead, issue info, and cover poster; include 'Read Today's Issue' button linking to /reader; generate 3-4 content teasers (truncated snippets from the issue's pages) with 'Read More' links to /reader?page=X; style with retro theme and decorative borders using generated images"
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Build Archive page listing all previously visited issues from localStorage with links to read them",
+      "acceptanceCriteria": [
+        "Archive page reads issue history from localStorage",
+        "Issues are listed newest-first with date and issue number",
+        "Each entry has a clickable 'Read Issue' link that loads the reader seeded for that date",
+        "Empty state message is shown when no past issues are recorded"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/ArchivePage.tsx",
+          "operation": "create",
+          "description": "Create ArchivePage component: call getArchivedIssues() from issueUtils to retrieve all stored issues; render a list of issue entries showing date, issue number, and 'Read Issue' link to /reader?issue=NUMBER; sort newest-first; show empty state message 'Come back tomorrow for more groovy content, baby!' if no past issues exist; style with retro theme and decorative dividers using generated frontend/public/assets/generated/retro-divider.dim_600x40.png"
+        },
+        {
+          "path": "frontend/src/pages/ReaderPage.tsx",
+          "operation": "modify",
+          "description": "Update ReaderPage to accept issue number from URL query param (?issue=N); if provided, use that issue seed instead of today's; ensure viewed issue is saved to archive via saveIssueToArchive()"
+        }
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "summary": "Build 'The Soapbox' community page with post feed, fake usernames, like button, reply threads, all persisted in localStorage",
+      "acceptanceCriteria": [
+        "Users can type a message and submit a post",
+        "Posts are persisted to localStorage and survive page refresh",
+        "Each post shows a fake username, relative or absolute timestamp, and message text",
+        "Each post has a 'Groovy!' like button; clicking it increments the count and persists to localStorage",
+        "Each post has a 'Reply' button that reveals an inline reply input",
+        "Replies are displayed nested under their parent post",
+        "Feed is sorted newest-first",
+        "Fake usernames are generated deterministically (e.g., from a list of 70s-style names)",
+        "Page is styled in the retro 70s theme"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/SoapboxPage.tsx",
+          "operation": "create",
+          "description": "Create SoapboxPage component styled like a retro 70s social feed: load posts from localStorage on mount; render a post input form at top; on submit, generate a fake 70s-style username deterministically (from a predefined list), add timestamp, save to localStorage; render feed of posts newest-first; each post shows username, timestamp, message, 'Groovy!' like button with count, and 'Reply' button; clicking 'Groovy!' increments like count in localStorage; clicking 'Reply' reveals an inline reply input; replies are stored nested under parent post in localStorage and displayed indented below parent; style with retro fonts, warm colors, and decorative borders using generated frontend/public/assets/generated/starburst-badge.dim_200x200.png for like badges"
+        },
+        {
+          "path": "frontend/src/utils/soapboxUtils.ts",
+          "operation": "create",
+          "description": "Create utility functions for Soapbox: loadPosts(), savePost(post), likePost(postId), addReply(postId, reply); manage localStorage keys for posts, likes, replies; generateFakeUsername(index) returning a deterministic 70s-style name from a list"
+        }
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "summary": "Build About page with satirical fake founding story, staff bios, fake address, mission statement in 1970s voice",
+      "acceptanceCriteria": [
+        "About page contains a fake founding story written in 1970s satirical voice",
+        "At least 4 fake staff bios with names and absurd credentials",
+        "A fake address and fake publication details are shown",
+        "A humorous mission statement is included",
+        "Layout mimics an old magazine editorial/colophon page"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/AboutPage.tsx",
+          "operation": "create",
+          "description": "Create AboutPage component styled as a retro magazine editorial page: render a fake founding story in 1970s satirical prose; list 4+ fake staff bios (editor-in-chief, staff writers, ad director) with absurd credentials; include a fake address and publication details; display a humorous mission statement; style with retro typography, decorative borders using generated frontend/public/assets/generated/retro-divider.dim_600x40.png, and aged newsprint background"
+        }
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "summary": "Ensure responsive layout optimized for desktop with mobile adaptations (vertical stacking, hamburger menu)",
+      "acceptanceCriteria": [
+        "Layout renders correctly on desktop (1280px+), tablet (768px), and mobile (375px)",
+        "Magazine reader is readable on all screen sizes",
+        "Navigation collapses on small screens"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Navigation.tsx",
+          "operation": "modify",
+          "description": "Add responsive behavior: on screens below 768px, collapse navigation into a hamburger menu using Tailwind responsive utilities or a custom toggle; ensure menu is accessible and styled in retro theme"
+        },
+        {
+          "path": "frontend/src/components/Layout.tsx",
+          "operation": "modify",
+          "description": "Apply responsive padding and max-width constraints; ensure Masthead scales appropriately on smaller screens; stack content vertically on mobile"
+        },
+        {
+          "path": "frontend/src/pages/ReaderPage.tsx",
+          "operation": "modify",
+          "description": "Ensure page content (posters, ads, comic panels) stack vertically and scale appropriately on mobile; adjust font sizes and spacing for readability on small screens"
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Add responsive typography and spacing utilities; ensure background texture tiles correctly on all screen sizes; add media queries for mobile-specific adjustments"
+        }
+      ]
+    }
+  ]
+}
