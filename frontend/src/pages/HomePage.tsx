@@ -65,26 +65,61 @@ export default function HomePage() {
 
   return (
     <div>
-      {/* Issue header */}
-      <div className="retro-border-thick p-4 mb-6 text-center" style={{ background: 'oklch(0.89 0.05 80)' }}>
-        <div className="flex flex-wrap justify-center gap-4 text-xs font-subheading tracking-widest mb-2" style={{ color: 'oklch(0.52 0.16 38)' }}>
-          <span>ISSUE #{issueNumber}</span>
-          <span>✦</span>
-          <span>{displayDate}</span>
-          <span>✦</span>
-          <span>PRICE: 35¢</span>
+      {/* Issue header — jersey-style issue number treatment */}
+      <div className="retro-border-thick p-4 mb-6 text-center relative overflow-hidden" style={{ background: 'oklch(0.89 0.05 80)' }}>
+        {/* Athletic number watermark behind content */}
+        <div
+          className="absolute inset-0 flex items-center justify-center pointer-events-none select-none"
+          aria-hidden="true"
+        >
+          <span
+            className="jersey-number"
+            style={{
+              fontSize: 'clamp(6rem, 20vw, 12rem)',
+              color: 'oklch(0.58 0.18 42 / 0.07)',
+              WebkitTextStroke: '1px oklch(0.22 0.06 255 / 0.06)',
+            }}
+          >
+            {issueNumber}
+          </span>
         </div>
-        <div className="retro-divider-simple" />
-        <p className="font-heading italic text-sm mt-2" style={{ color: 'oklch(0.40 0.10 50)' }}>
-          "All the news that's unfit to print — and then some!"
-        </p>
+
+        {/* Foreground content */}
+        <div className="relative z-10">
+          <div className="flex flex-wrap justify-center gap-4 text-xs font-subheading tracking-widest mb-2" style={{ color: 'oklch(0.52 0.16 38)' }}>
+            {/* Jersey-style issue number badge */}
+            <span
+              className="jersey-number inline-block px-3 py-0.5"
+              style={{
+                fontSize: '1.6rem',
+                color: 'oklch(0.98 0.005 90)',
+                background: 'oklch(0.22 0.06 255)',
+                WebkitTextStroke: '1px oklch(0.58 0.18 42)',
+                lineHeight: 1.1,
+              }}
+            >
+              #{issueNumber}
+            </span>
+            <span className="self-center">✦</span>
+            <span className="self-center">{displayDate}</span>
+            <span className="self-center">✦</span>
+            <span className="self-center">PRICE: 35¢</span>
+          </div>
+          <div className="retro-divider-simple" />
+          <p className="font-heading italic text-sm mt-2" style={{ color: 'oklch(0.40 0.10 50)' }}>
+            "All the news that's unfit to print — and then some!"
+          </p>
+        </div>
       </div>
+
+      {/* Athletic diagonal stripe between header and cover */}
+      <div className="diagonal-stripe mb-6" />
 
       {/* Cover feature */}
       <div className="grid md:grid-cols-2 gap-6 mb-8">
         {/* Cover poster */}
         <div>
-          <div className="font-subheading text-xs tracking-widest mb-2 px-2 py-1 inline-block" style={{ background: 'oklch(0.52 0.16 38)', color: 'oklch(0.93 0.04 88)' }}>
+          <div className="font-athletic text-xs tracking-widest mb-2 px-2 py-1 inline-block font-bold" style={{ background: 'oklch(0.52 0.16 38)', color: 'oklch(0.93 0.04 88)', letterSpacing: '0.12em' }}>
             THIS ISSUE'S COVER FEATURE
           </div>
           {coverPage.contentType === 'spoofMoviePoster' && (() => {
@@ -123,7 +158,15 @@ export default function HomePage() {
         {/* Issue info + CTA */}
         <div className="flex flex-col justify-between">
           <div className="retro-card p-5 mb-4">
-            <h3 className="retro-heading text-xl mb-3" style={{ color: 'oklch(0.35 0.12 42)' }}>
+            {/* Athletic-style section header */}
+            <h3
+              className="athletic-heading mb-3"
+              style={{
+                fontSize: '1.5rem',
+                color: 'oklch(0.22 0.06 255)',
+                textShadow: '2px 2px 0 oklch(0.58 0.18 42)',
+              }}
+            >
               WELCOME TO ISSUE #{issueNumber}
             </h3>
             <p className="font-body text-sm leading-relaxed mb-3" style={{ color: 'oklch(0.30 0.08 50)' }}>
@@ -148,7 +191,14 @@ export default function HomePage() {
       {/* Content teasers */}
       <div className="mb-6">
         <div className="retro-divider" />
-        <h3 className="retro-heading text-xl text-center my-4" style={{ color: 'oklch(0.35 0.12 42)' }}>
+        <h3
+          className="athletic-heading text-center my-4"
+          style={{
+            fontSize: '1.75rem',
+            color: 'oklch(0.22 0.06 255)',
+            textShadow: '2px 2px 0 oklch(0.58 0.18 42)',
+          }}
+        >
           INSIDE THIS ISSUE...
         </h3>
         <div className="grid sm:grid-cols-2 gap-4">
@@ -162,7 +212,15 @@ export default function HomePage() {
                 <span className="font-subheading text-xs px-2 py-0.5" style={{ background: 'oklch(0.76 0.16 88)', color: 'oklch(0.22 0.05 55)' }}>
                   {getTypeLabel(page.contentType)}
                 </span>
-                <span className="font-body text-xs" style={{ color: 'oklch(0.55 0.06 60)' }}>
+                {/* Jersey-style page number */}
+                <span
+                  className="jersey-number"
+                  style={{
+                    fontSize: '1.4rem',
+                    color: 'oklch(0.22 0.06 255)',
+                    WebkitTextStroke: '1px oklch(0.58 0.18 42)',
+                  }}
+                >
                   p.{page.pageNumber}
                 </span>
               </div>
@@ -172,7 +230,7 @@ export default function HomePage() {
               <p className="font-body text-xs leading-relaxed mb-2" style={{ color: 'oklch(0.40 0.06 55)' }}>
                 {getTeaserSnippet(page)}
               </p>
-              <span className="font-subheading text-xs" style={{ color: 'oklch(0.52 0.16 38)' }}>
+              <span className="font-athletic text-xs font-bold" style={{ color: 'oklch(0.52 0.16 38)', letterSpacing: '0.1em' }}>
                 READ MORE →
               </span>
             </div>

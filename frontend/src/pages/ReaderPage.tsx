@@ -46,13 +46,29 @@ export default function ReaderPage() {
             · {displayDate}
           </span>
         </div>
-        <div className="font-subheading text-sm tracking-wider" style={{ color: 'oklch(0.35 0.12 42)' }}>
-          PAGE {currentPage} OF 50
+
+        {/* Jersey-style page indicator */}
+        <div className="flex items-baseline gap-1">
+          <span
+            className="jersey-number"
+            style={{
+              fontSize: '2rem',
+              color: 'oklch(0.22 0.06 255)',
+              WebkitTextStroke: '1.5px oklch(0.58 0.18 42)',
+              lineHeight: 1,
+            }}
+          >
+            {currentPage}
+          </span>
+          <span className="font-athletic font-bold text-sm" style={{ color: 'oklch(0.55 0.06 60)', letterSpacing: '0.05em' }}>
+            / 50
+          </span>
         </div>
+
         <button
           onClick={() => navigate({ to: '/' })}
-          className="font-subheading text-xs tracking-widest"
-          style={{ color: 'oklch(0.52 0.16 38)' }}
+          className="font-athletic font-bold text-xs tracking-widest"
+          style={{ color: 'oklch(0.52 0.16 38)', letterSpacing: '0.1em' }}
         >
           ← BACK TO HOME
         </button>
@@ -75,6 +91,10 @@ export default function ReaderPage() {
 
       {/* Navigation controls */}
       <div className="retro-divider mb-4" />
+
+      {/* Athletic diagonal stripe above nav controls */}
+      <div className="diagonal-stripe-thin mb-4" />
+
       <div className="flex items-center justify-between gap-4 mb-4">
         <button
           onClick={() => goToPage(currentPage - 1)}
@@ -85,10 +105,29 @@ export default function ReaderPage() {
           PREV PAGE
         </button>
 
-        {/* Page indicator */}
+        {/* Page indicator — jersey number treatment */}
         <div className="text-center">
-          <div className="font-subheading text-sm tracking-widest" style={{ color: 'oklch(0.35 0.12 42)' }}>
-            {currentPage} / 50
+          <div className="flex items-baseline justify-center gap-1 mb-1">
+            <span
+              className="jersey-number"
+              style={{
+                fontSize: '2.5rem',
+                color: 'oklch(0.22 0.06 255)',
+                WebkitTextStroke: '2px oklch(0.58 0.18 42)',
+                lineHeight: 1,
+              }}
+            >
+              {currentPage}
+            </span>
+            <span
+              className="athletic-heading"
+              style={{
+                fontSize: '1rem',
+                color: 'oklch(0.55 0.06 60)',
+              }}
+            >
+              / 50
+            </span>
           </div>
           <div className="flex gap-0.5 mt-1 justify-center flex-wrap max-w-xs">
             {Array.from({ length: 50 }, (_, i) => (
@@ -98,9 +137,9 @@ export default function ReaderPage() {
                 className="w-2 h-2 rounded-none transition-colors"
                 style={{
                   background: i + 1 === currentPage
-                    ? 'oklch(0.52 0.16 38)'
+                    ? 'oklch(0.22 0.06 255)'
                     : i + 1 < currentPage
-                    ? 'oklch(0.65 0.08 60)'
+                    ? 'oklch(0.58 0.18 42)'
                     : 'oklch(0.80 0.04 75)',
                 }}
                 title={`Page ${i + 1}`}
@@ -127,10 +166,11 @@ export default function ReaderPage() {
             <button
               key={p}
               onClick={() => goToPage(p)}
-              className="font-subheading text-xs mx-1 px-2 py-0.5 hover:underline"
+              className="font-athletic font-bold text-xs mx-1 px-2 py-0.5 hover:underline"
               style={{
-                color: currentPage === p ? 'oklch(0.52 0.16 38)' : 'oklch(0.45 0.08 55)',
-                fontWeight: currentPage === p ? 'bold' : 'normal',
+                color: currentPage === p ? 'oklch(0.22 0.06 255)' : 'oklch(0.45 0.08 55)',
+                fontWeight: currentPage === p ? '900' : '700',
+                letterSpacing: '0.05em',
               }}
             >
               {p}

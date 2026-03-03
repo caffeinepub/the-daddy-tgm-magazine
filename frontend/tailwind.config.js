@@ -77,6 +77,9 @@ export default {
                 cream: 'oklch(0.95 0.03 90)',
                 'burnt-orange': 'oklch(0.58 0.18 42)',
                 'dark-brown': 'oklch(0.28 0.08 48)',
+                // Early 2000s athletic accents
+                'sport-white': 'oklch(0.98 0.005 90)',
+                'sport-navy': 'oklch(0.22 0.06 255)',
             },
             fontFamily: {
                 masthead: ['Abril Fatface', 'Georgia', 'serif'],
@@ -84,6 +87,8 @@ export default {
                 subheading: ['Oswald', 'sans-serif'],
                 body: ['Special Elite', 'Courier New', 'monospace'],
                 mono: ['Courier New', 'monospace'],
+                // Early 2000s athletic condensed font
+                athletic: ['Barlow Condensed', 'Impact', 'Arial Narrow', 'sans-serif'],
             },
             borderRadius: {
                 lg: 'var(--radius)',
@@ -96,6 +101,8 @@ export default {
                 retro: '4px 4px 0 oklch(0.45 0.12 42)',
                 'retro-sm': '2px 2px 0 oklch(0.45 0.12 42)',
                 'retro-lg': '6px 6px 0 oklch(0.35 0.10 42)',
+                // Athletic drop shadow
+                'sport': '3px 3px 0 oklch(0.22 0.06 255)',
             },
             keyframes: {
                 'accordion-down': {

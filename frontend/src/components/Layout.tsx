@@ -17,9 +17,15 @@ export default function Layout({ children }: LayoutProps) {
         <Navigation />
       </header>
 
+      {/* Athletic diagonal stripe divider between nav and main content */}
+      <div className="diagonal-stripe" style={{ marginBottom: 0 }} />
+
       <main className="flex-1 max-w-5xl mx-auto w-full px-4 py-6">
         {children}
       </main>
+
+      {/* Athletic stripe accent before footer */}
+      <div className="diagonal-stripe-thin" />
 
       <footer style={{ background: 'oklch(0.22 0.06 48)', borderTop: '3px double oklch(0.58 0.18 42)' }}>
         <div className="max-w-5xl mx-auto px-4 py-4 text-center">

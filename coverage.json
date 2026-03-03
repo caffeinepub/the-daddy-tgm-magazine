@@ -1,283 +1,52 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-03-02T22:12:44.302Z",
+  "generatedAt": "2026-03-03T00:24:14.977Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 12,
-    "implemented": 12,
+    "total": 1,
+    "implemented": 1,
     "items": [
       {
-        "id": "REQ-1",
-        "summary": "Apply a 1970s retro visual theme across the entire app: warm browns, oranges, yellows, mustard, avocado greens, and burnt sienna color palette; retro serif fonts for headings/masthead; typewriter-style monospace font for body text; CSS-simulated aged paper/newsprint texture background (grain, slight yellowing, subtle vignette); decorative retro borders, groovy dividers, and period-appropriate ornamental elements.",
+        "id": "REQ-13",
+        "summary": "Introduce early 2000s athletic/sports visual accents into the existing 1970s retro theme across the entire app. Add bold condensed sans-serif sport fonts (e.g., Impact-style or a condensed athletic face) for select headings, callouts, and nav hover states. Incorporate jersey-style large numerals for issue numbers and page indicators. Add dynamic diagonal stripe or swoosh motifs as decorative dividers and section borders — rendered in CSS — using the existing retro color palette (rust, mustard, avocado) augmented with crisp white and a deep navy or black for sporty contrast. Keep the 1970s newsprint base intact; the athletic elements should feel like a retro sports magazine crossover, not a full rebrand.",
         "status": "implemented",
         "plannedFiles": [
+          "frontend/tailwind.config.js",
           "frontend/src/index.css",
-          "frontend/tailwind.config.js"
+          "frontend/src/components/Masthead.tsx",
+          "frontend/src/components/Navigation.tsx",
+          "frontend/src/pages/HomePage.tsx",
+          "frontend/src/pages/ReaderPage.tsx",
+          "frontend/src/components/Layout.tsx"
         ],
         "matchedFiles": [
+          "frontend/tailwind.config.js",
           "frontend/src/index.css",
-          "frontend/tailwind.config.js"
-        ]
-      },
-      {
-        "id": "REQ-10",
-        "summary": "Build 'The Soapbox' community page styled like a social feed (X/Twitter layout) but fully themed in 1970s retro style. Users can type and submit posts (stored in localStorage). Each post displays a fake auto-generated 1970s-style username, a timestamp, and the post text. Each post has a 'Groovy!' like button showing a count. Posts support a reply thread — clicking 'Reply' opens an inline reply input and shows nested replies beneath the post. The feed scrolls vertically with newest posts at the top.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/pages/SoapboxPage.tsx",
-          "frontend/src/utils/soapboxUtils.ts"
-        ],
-        "matchedFiles": [
-          "frontend/src/pages/SoapboxPage.tsx",
-          "frontend/src/utils/soapboxUtils.ts"
-        ]
-      },
-      {
-        "id": "REQ-11",
-        "summary": "Build the About page as a satirical fake 'About Us' page written entirely in 1970s voice. Include a fake founding story, fake staff bios (editor-in-chief, staff writers, ad director, etc.) with absurd credentials, a fake address, and a humorous mission statement. Style it like an old magazine's inside-cover editorial page.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/pages/AboutPage.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/pages/AboutPage.tsx"
-        ]
-      },
-      {
-        "id": "REQ-12",
-        "summary": "Ensure the application is fully responsive but optimized primarily for desktop reading. On mobile, the reader should stack content vertically and navigation should collapse into a hamburger menu or similar compact control.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/components/Navigation.tsx",
-          "frontend/src/components/Layout.tsx",
-          "frontend/src/pages/ReaderPage.tsx",
-          "frontend/src/index.css"
-        ],
-        "matchedFiles": [
-          "frontend/src/components/Navigation.tsx",
-          "frontend/src/components/Layout.tsx",
-          "frontend/src/pages/ReaderPage.tsx",
-          "frontend/src/index.css"
-        ]
-      },
-      {
-        "id": "REQ-2",
-        "summary": "Display a prominent magazine masthead at the top of every page reading 'THE DADDY \"TGM\"' in large, bold retro lettering with the tagline 'The Grooviest Rag on the Rack' beneath it, styled as a 1970s magazine logo.",
-        "status": "implemented",
-        "plannedFiles": [
           "frontend/src/components/Masthead.tsx",
-          "frontend/src/components/Layout.tsx",
-          "frontend/src/App.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/components/Masthead.tsx",
-          "frontend/src/components/Layout.tsx",
-          "frontend/src/App.tsx"
-        ]
-      },
-      {
-        "id": "REQ-3",
-        "summary": "Implement a top navigation bar with five links: Home, Read Issue, Archive, The Soapbox, and About. Style navigation in the retro 1970s theme with period-appropriate typography and hover effects.",
-        "status": "implemented",
-        "plannedFiles": [
           "frontend/src/components/Navigation.tsx",
-          "frontend/src/components/Layout.tsx",
-          "frontend/src/App.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/components/Navigation.tsx",
-          "frontend/src/components/Layout.tsx",
-          "frontend/src/App.tsx"
-        ]
-      },
-      {
-        "id": "REQ-4",
-        "summary": "Implement a date-based daily issue system: use JavaScript's `new Date()` to compute a deterministic daily issue number (e.g., days since a fixed epoch date). Each calendar day maps to exactly one issue number. Store the list of accessed issue dates in localStorage so the archive can track all previously viewed issues.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/utils/issueUtils.ts"
-        ],
-        "matchedFiles": [
-          "frontend/src/utils/issueUtils.ts"
-        ]
-      },
-      {
-        "id": "REQ-5",
-        "summary": "Build a seeded pseudo-random content generation system: given a numeric seed (the daily issue number), produce a consistent, repeatable sequence of content selections for each of the 50 pages. Use a seedable PRNG (e.g., a simple mulberry32 or xorshift implementation in JS) so the same seed always yields the same 50-page layout.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/utils/prng.ts",
-          "frontend/src/utils/issueGenerator.ts"
-        ],
-        "matchedFiles": [
-          "frontend/src/utils/prng.ts",
-          "frontend/src/utils/issueGenerator.ts"
-        ]
-      },
-      {
-        "id": "REQ-6",
-        "summary": "Create a large content library with at least 200 unique content items spread across the following categories, all written in 1970s Mad Magazine / National Lampoon satirical style with adult humor and cussing allowed (satire of fictional scenarios and movies, no real-person defamation): (1) Spoof movie poster/fake ad panels — parody movie concepts with fake taglines, fake credits, and humorous ASCII art or CSS-styled poster boxes. (2) Movie spoof comic strip panels — CSS div-based comic panels with stick-figure-style characters acting out parody movie scenes with funny dialogue. (3) Fake 1970s product advertisements — spoof products like hair tonics, cigarettes, cars, household goods with outrageous claims. (4) Sarcastic spoof movie reviews. (5) Funny fake letters to the editor. (6) Back-page full-bleed spoof ads or jokes.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/data/contentLibrary.ts"
-        ],
-        "matchedFiles": [
-          "frontend/src/data/contentLibrary.ts"
-        ]
-      },
-      {
-        "id": "REQ-7",
-        "summary": "Build the 50-page magazine reader with page-by-page navigation. Each page renders one content item from the seeded daily issue. Show 'Page X of 50' indicator. Provide Previous and Next buttons. The final page (page 50) is always the back-page content type. Apply a CSS page-turn or fade transition between pages.",
-        "status": "implemented",
-        "plannedFiles": [
+          "frontend/src/pages/HomePage.tsx",
           "frontend/src/pages/ReaderPage.tsx",
-          "frontend/src/components/PageRenderer.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/pages/ReaderPage.tsx",
-          "frontend/src/components/PageRenderer.tsx"
-        ]
-      },
-      {
-        "id": "REQ-8",
-        "summary": "Build the Home page showing: today's issue cover (large masthead, issue number, date, a seeded featured spoof movie poster as the 'cover image'), a 'Read Today's Issue' CTA button, and a grid of 3–4 featured content teasers from the current issue (truncated snippets of ads, reviews, or comic titles with 'Read More' links into the reader at the correct page).",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/pages/HomePage.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/pages/HomePage.tsx"
-        ]
-      },
-      {
-        "id": "REQ-9",
-        "summary": "Build the Archive page listing all previously visited issue dates stored in localStorage. Each entry shows the issue date, issue number, and a 'Read Issue' link. Sort entries newest-first. If no past issues exist beyond today, show a message like 'Come back tomorrow for more groovy content, baby!'",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/pages/ArchivePage.tsx",
-          "frontend/src/pages/ReaderPage.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/pages/ArchivePage.tsx",
-          "frontend/src/pages/ReaderPage.tsx"
+          "frontend/src/components/Layout.tsx"
         ]
       }
     ]
   },
   "changedFiles": [
-    "backend/main.mo",
     "build-request.json",
-    "build-template/Dockerfile",
-    "build-template/LICENSE",
     "build-template/README.md",
-    "build-template/deploy.sh",
-    "build-template/icp.yaml",
-    "build-template/package.json",
-    "build-template/pnpm-lock.yaml",
-    "build-template/pnpm-workspace.yaml",
-    "build-template/scripts/prune-unused-images.js",
-    "build-template/scripts/resize-images.js",
-    "build-template/src/backend/canister.yaml",
-    "build-template/src/backend/system-idl/aaaaa-aa.did",
-    "build-template/src/frontend/canister.yaml",
-    "build-template/src/frontend/components.json",
-    "build-template/src/frontend/env.json",
-    "build-template/src/frontend/eslint-rules/no-bigint-in-query-keys.js",
-    "build-template/src/frontend/eslint-rules/require-internet-identity-provider.js",
-    "build-template/src/frontend/eslint.config.js",
-    "build-template/src/frontend/package.json",
-    "build-template/src/frontend/postcss.config.js",
-    "build-template/src/frontend/src/components/ui/accordion.tsx",
-    "build-template/src/frontend/src/components/ui/alert-dialog.tsx",
-    "build-template/src/frontend/src/components/ui/alert.tsx",
-    "build-template/src/frontend/src/components/ui/aspect-ratio.tsx",
-    "build-template/src/frontend/src/components/ui/avatar.tsx",
-    "build-template/src/frontend/src/components/ui/badge.tsx",
-    "build-template/src/frontend/src/components/ui/breadcrumb.tsx",
-    "build-template/src/frontend/src/components/ui/button.tsx",
-    "build-template/src/frontend/src/components/ui/calendar.tsx",
-    "build-template/src/frontend/src/components/ui/card.tsx",
-    "build-template/src/frontend/src/components/ui/carousel.tsx",
-    "build-template/src/frontend/src/components/ui/chart.tsx",
-    "build-template/src/frontend/src/components/ui/checkbox.tsx",
-    "build-template/src/frontend/src/components/ui/collapsible.tsx",
-    "build-template/src/frontend/src/components/ui/command.tsx",
-    "build-template/src/frontend/src/components/ui/context-menu.tsx",
-    "build-template/src/frontend/src/components/ui/dialog.tsx",
-    "build-template/src/frontend/src/components/ui/drawer.tsx",
-    "build-template/src/frontend/src/components/ui/dropdown-menu.tsx",
-    "build-template/src/frontend/src/components/ui/form.tsx",
-    "build-template/src/frontend/src/components/ui/hover-card.tsx",
-    "build-template/src/frontend/src/components/ui/input-otp.tsx",
-    "build-template/src/frontend/src/components/ui/input.tsx",
-    "build-template/src/frontend/src/components/ui/label.tsx",
-    "build-template/src/frontend/src/components/ui/menubar.tsx",
-    "build-template/src/frontend/src/components/ui/navigation-menu.tsx",
-    "build-template/src/frontend/src/components/ui/pagination.tsx",
-    "build-template/src/frontend/src/components/ui/popover.tsx",
-    "build-template/src/frontend/src/components/ui/progress.tsx",
-    "build-template/src/frontend/src/components/ui/radio-group.tsx",
-    "build-template/src/frontend/src/components/ui/resizable.tsx",
-    "build-template/src/frontend/src/components/ui/scroll-area.tsx",
-    "build-template/src/frontend/src/components/ui/select.tsx",
-    "build-template/src/frontend/src/components/ui/separator.tsx",
-    "build-template/src/frontend/src/components/ui/sheet.tsx",
-    "build-template/src/frontend/src/components/ui/sidebar.tsx",
-    "build-template/src/frontend/src/components/ui/skeleton.tsx",
-    "build-template/src/frontend/src/components/ui/slider.tsx",
-    "build-template/src/frontend/src/components/ui/sonner.tsx",
-    "build-template/src/frontend/src/components/ui/switch.tsx",
-    "build-template/src/frontend/src/components/ui/table.tsx",
-    "build-template/src/frontend/src/components/ui/tabs.tsx",
-    "build-template/src/frontend/src/components/ui/textarea.tsx",
-    "build-template/src/frontend/src/components/ui/toggle-group.tsx",
-    "build-template/src/frontend/src/components/ui/toggle.tsx",
-    "build-template/src/frontend/src/components/ui/tooltip.tsx",
-    "build-template/src/frontend/src/hooks/use-mobile.tsx",
-    "build-template/src/frontend/src/lib/utils.ts",
-    "build-template/src/frontend/tsconfig.json",
-    "build-template/src/frontend/vite.config.js",
-    "build-template/tsconfig.json",
-    "caffeine.lock.json",
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/index.css",
-    "frontend/index.html",
-    "frontend/public/assets/generated/newsprint-texture.dim_512x512.png",
-    "frontend/public/assets/generated/retro-divider.dim_600x40.png",
-    "frontend/public/assets/generated/starburst-badge.dim_200x200.png",
-    "frontend/public/assets/generated/tgm-masthead.dim_800x200.png",
-    "frontend/src/App.tsx",
-    "frontend/src/backend.d.ts",
-    "frontend/src/backend.ts",
     "frontend/src/components/Layout.tsx",
     "frontend/src/components/Masthead.tsx",
     "frontend/src/components/Navigation.tsx",
-    "frontend/src/components/PageRenderer.tsx",
-    "frontend/src/config.ts",
-    "frontend/src/data/contentLibrary.ts",
-    "frontend/src/declarations/backend.did.d.ts",
-    "frontend/src/declarations/backend.did.js",
-    "frontend/src/hooks/useActor.ts",
-    "frontend/src/hooks/useInternetIdentity.ts",
     "frontend/src/index.css",
-    "frontend/src/main.tsx",
-    "frontend/src/pages/AboutPage.tsx",
-    "frontend/src/pages/ArchivePage.tsx",
     "frontend/src/pages/HomePage.tsx",
     "frontend/src/pages/ReaderPage.tsx",
-    "frontend/src/pages/SoapboxPage.tsx",
-    "frontend/src/ui-summary.json",
-    "frontend/src/utils/StorageClient.ts",
-    "frontend/src/utils/issueGenerator.ts",
-    "frontend/src/utils/issueUtils.ts",
-    "frontend/src/utils/prng.ts",
-    "frontend/src/utils/soapboxUtils.ts",
     "frontend/tailwind.config.js",
     "project_state.json",
     "scratch/component-selection.json",

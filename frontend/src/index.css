@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Special+Elite&family=Oswald:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Special+Elite&family=Oswald:wght@400;600;700&family=Barlow+Condensed:wght@700;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -65,6 +65,11 @@
     --avocado: 0.50 0.12 128;
     --sienna: 0.48 0.14 42;
     --cream: 0.95 0.03 90;
+
+    /* Early 2000s athletic accent tokens */
+    --sport-white: 0.98 0.005 90;
+    --sport-navy: 0.22 0.06 255;
+    --sport-stripe: 0.58 0.18 42;
   }
 
   * {
@@ -112,6 +117,110 @@
     font-family: 'Special Elite', 'Courier New', monospace;
     line-height: 1.7;
   }
+
+  /* ── Early 2000s Athletic styles ── */
+
+  .athletic-heading {
+    font-family: 'Barlow Condensed', 'Impact', 'Arial Narrow', sans-serif;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    line-height: 0.95;
+  }
+
+  .jersey-number {
+    font-family: 'Barlow Condensed', 'Impact', 'Arial Narrow', sans-serif;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    text-transform: uppercase;
+    /* Sporty double-stroke effect */
+    -webkit-text-stroke: 2px oklch(0.22 0.06 255);
+    paint-order: stroke fill;
+  }
+
+  /* Diagonal stripe divider — early 2000s swoosh energy */
+  .diagonal-stripe {
+    width: 100%;
+    height: 10px;
+    position: relative;
+    overflow: hidden;
+    background: repeating-linear-gradient(
+      -55deg,
+      oklch(0.58 0.18 42) 0px,
+      oklch(0.58 0.18 42) 6px,
+      oklch(0.76 0.16 88) 6px,
+      oklch(0.76 0.16 88) 10px,
+      oklch(0.22 0.06 255) 10px,
+      oklch(0.22 0.06 255) 14px,
+      oklch(0.98 0.005 90) 14px,
+      oklch(0.98 0.005 90) 18px
+    );
+  }
+
+  .diagonal-stripe-thin {
+    width: 100%;
+    height: 6px;
+    background: repeating-linear-gradient(
+      -55deg,
+      oklch(0.22 0.06 255) 0px,
+      oklch(0.22 0.06 255) 4px,
+      oklch(0.58 0.18 42) 4px,
+      oklch(0.58 0.18 42) 8px,
+      oklch(0.76 0.16 88) 8px,
+      oklch(0.76 0.16 88) 12px
+    );
+  }
+
+  /* Athletic nav hover — bold underline swoosh */
+  .nav-link-retro {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: oklch(0.93 0.04 88);
+    padding: 0.4rem 0.9rem;
+    border: 1px solid transparent;
+    transition: all 0.15s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Athletic swoosh underline on hover */
+  .nav-link-retro::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -100%;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(
+      90deg,
+      oklch(0.22 0.06 255) 0%,
+      oklch(0.58 0.18 42) 50%,
+      oklch(0.76 0.16 88) 100%
+    );
+    transition: left 0.2s ease;
+  }
+
+  .nav-link-retro:hover::after,
+  .nav-link-retro.active::after {
+    left: 0;
+  }
+
+  .nav-link-retro:hover {
+    color: oklch(0.98 0.005 90);
+    letter-spacing: 0.16em;
+    border-color: transparent;
+  }
+
+  .nav-link-retro.active {
+    color: oklch(0.76 0.16 88);
+    border-color: oklch(0.76 0.16 88);
+    background-color: oklch(0.76 0.16 88 / 0.1);
+  }
+
+  /* ── End Athletic styles ── */
 
   .paper-bg {
     background-color: oklch(0.93 0.04 88);
@@ -259,29 +368,6 @@
     transition: opacity 0.2s ease;
   }
 
-  .nav-link-retro {
-    font-family: 'Oswald', sans-serif;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: oklch(0.93 0.04 88);
-    padding: 0.4rem 0.9rem;
-    border: 1px solid transparent;
-    transition: all 0.15s ease;
-    position: relative;
-  }
-
-  .nav-link-retro:hover {
-    color: oklch(0.76 0.16 88);
-    border-color: oklch(0.76 0.16 88 / 0.5);
-  }
-
-  .nav-link-retro.active {
-    color: oklch(0.76 0.16 88);
-    border-color: oklch(0.76 0.16 88);
-    background-color: oklch(0.76 0.16 88 / 0.1);
-  }
-
   .vignette {
     position: relative;
   }
@@ -409,6 +495,12 @@
   .masthead-flicker {
     animation: flicker 4s ease-in-out infinite;
   }
+
+  /* Athletic stripe flash keyframe for nav */
+  @keyframes stripe-flash {
+    0% { background-position: 0 0; }
+    100% { background-position: 40px 0; }
+  }
 }
 
 @layer utilities {
@@ -416,6 +508,7 @@
   .font-heading { font-family: 'Playfair Display', 'Georgia', serif; }
   .font-subheading { font-family: 'Oswald', sans-serif; }
   .font-body { font-family: 'Special Elite', 'Courier New', monospace; }
+  .font-athletic { font-family: 'Barlow Condensed', 'Impact', 'Arial Narrow', sans-serif; }
 
   .text-ink { color: oklch(0.18 0.06 50); }
   .text-rust { color: oklch(0.52 0.16 38); }
@@ -424,6 +517,8 @@
   .text-sienna { color: oklch(0.48 0.14 42); }
   .text-cream { color: oklch(0.95 0.03 90); }
   .text-paper { color: oklch(0.93 0.04 88); }
+  .text-sport-white { color: oklch(0.98 0.005 90); }
+  .text-sport-navy { color: oklch(0.22 0.06 255); }
 
   .bg-paper { background-color: oklch(0.93 0.04 88); }
   .bg-paper-dark { background-color: oklch(0.86 0.06 78); }
@@ -433,9 +528,11 @@
   .bg-sienna { background-color: oklch(0.48 0.14 42); }
   .bg-ink { background-color: oklch(0.18 0.06 50); }
   .bg-cream { background-color: oklch(0.95 0.03 90); }
+  .bg-sport-navy { background-color: oklch(0.22 0.06 255); }
 
   .border-rust { border-color: oklch(0.52 0.16 38); }
   .border-mustard { border-color: oklch(0.76 0.16 88); }
   .border-sienna { border-color: oklch(0.48 0.14 42); }
   .border-ink { border-color: oklch(0.18 0.06 50); }
+  .border-sport-navy { border-color: oklch(0.22 0.06 255); }
 }

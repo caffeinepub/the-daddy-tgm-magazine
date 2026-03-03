@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 3,
-  "summary": "A fully functional retro online magazine called 'The Daddy TGM' (The Groovy Magazine) — a satirical 1970s-style comedy magazine built in pure HTML/CSS/JS with daily seeded issues, 50-page reader, spoof movie posters, fake ads, comic strips, movie reviews, letters to the editor, an archive system, a community soapbox (localStorage-based social feed), and a fake about page.",
+  "projectStateVersion": 5,
+  "summary": "A fully functional retro online magazine called 'The Daddy TGM' (The Groovy Magazine) — a satirical 1970s-style comedy magazine built in pure HTML/CSS/JS with daily seeded issues, 50-page reader, spoof movie posters, fake ads, comic strips, movie reviews, letters to the editor, an archive system, a community soapbox (localStorage-based social feed), and a fake about page. Now incorporating early 2000s athletic/sports aesthetic influences alongside the 1970s retro theme.",
   "architectural_notes": [
     "Pure HTML/CSS/JS — no backend; localStorage used for archive tracking and community posts",
     "Seeded RNG (linear congruential generator) used so each daily issue is unique but deterministic — same date always yields same content",
@@ -12,7 +12,6 @@
   ],
   "known_issues": [],
   "isFixRequest": false,
-  "imageRequirements": "## Required Images\n- Aged yellowed newsprint paper texture background tile, grainy and slightly uneven (newsprint-texture.dim_512x512.png)\n- THE DADDY TGM retro 1970s magazine masthead logo, bold funky serif lettering in orange and brown on cream background (tgm-masthead.dim_800x200.png)\n- Retro 1970s decorative horizontal divider ornament in burnt sienna and mustard yellow (retro-divider.dim_600x40.png)\n- Groovy 1970s style starburst badge graphic in orange and yellow (starburst-badge.dim_200x200.png)",
   "existing_features": [
     {
       "id": "feature-apply-a-1970s-retro-visual-theme-across-the-entire-app-warm-browns-oranges-yellows-mustard-avocado-greens-and-burnt-sienna-color-palette-retro-serif-fonts-for-headings-masthead-typewriter-style-monospace-font-for-body-text-css-simulated-aged-paper-newsprint-texture-background-grain-slight-yellowing-subtle-vignette-decorative-retro-borders-groovy-dividers-and-period-appropriate-ornamental-elements",
@@ -109,9 +108,24 @@
         "REQ-12"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-introduce-early-2000s-athletic-sports-visual-accents-into-the-existing-1970s-retro-theme-across-the-entire-app-add-bold-condensed-sans-serif-sport-fonts-e-g-impact-style-or-a-condensed-athletic-face-for-select-headings-callouts-and-nav-hover-states-incorporate-jersey-style-large-numerals-for-issue-numbers-and-page-indicators-add-dynamic-diagonal-stripe-or-swoosh-motifs-as-decorative-dividers-and-section-borders-rendered-in-css-using-the-existing-retro-color-palette-rust-mustard-avocado-augmented-with-crisp-white-and-a-deep-navy-or-black-for-sporty-contrast-keep-the-1970s-newsprint-base-intact-the-athletic-elements-should-feel-like-a-retro-sports-magazine-crossover-not-a-full-rebrand",
+      "title": "Introduce early 2000s athletic/sports visual accents into the existing 1970s retro theme across the entire app. Add bold condensed sans-serif sport fonts (e.g., Impact-style or a condensed athletic face) for select headings, callouts, and nav hover states. Incorporate jersey-style large numerals for issue numbers and page indicators. Add dynamic diagonal stripe or swoosh motifs as decorative dividers and section borders — rendered in CSS — using the existing retro color palette (rust, mustard, avocado) augmented with crisp white and a deep navy or black for sporty contrast. Keep the 1970s newsprint base intact; the athletic elements should feel like a retro sports magazine crossover, not a full rebrand.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
     }
   ],
-  "new_feature_requests": [],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Blend early 2000s athletic/sports aesthetic elements into the design — bold sans-serif fonts, sporty color accents, jersey-style numbering, dynamic swoosh/stripe motifs — while keeping the 1970s retro magazine base theme",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
   "gameProjectType": "none",
   "projectName": "The Daddy TGM",
   "clarification_mode": "instant",

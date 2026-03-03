@@ -16,7 +16,10 @@ export default function Navigation() {
   const currentPath = routerState.location.pathname;
 
   return (
-    <nav style={{ background: 'oklch(0.30 0.08 50)', borderBottom: '3px solid oklch(0.58 0.18 42)' }}>
+    <nav style={{ background: 'oklch(0.28 0.07 50)', borderBottom: '3px solid oklch(0.58 0.18 42)' }}>
+      {/* Athletic diagonal stripe accent at top of nav */}
+      <div className="diagonal-stripe-thin" />
+
       <div className="max-w-5xl mx-auto px-4">
         {/* Desktop nav */}
         <div className="hidden md:flex items-center justify-center gap-1 py-1">
@@ -36,7 +39,7 @@ export default function Navigation() {
 
         {/* Mobile nav */}
         <div className="md:hidden flex items-center justify-between py-2">
-          <span className="font-subheading text-sm tracking-widest" style={{ color: 'oklch(0.76 0.16 88)' }}>
+          <span className="font-athletic text-sm tracking-widest font-bold" style={{ color: 'oklch(0.76 0.16 88)', letterSpacing: '0.15em' }}>
             ✦ NAVIGATE ✦
           </span>
           <button

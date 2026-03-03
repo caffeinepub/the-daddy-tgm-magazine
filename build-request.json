@@ -1,289 +1,44 @@
 {
   "kind": "build_request",
-  "title": "The Daddy TGM – Retro 1970s Satirical Online Magazine",
+  "title": "Blend early 2000s athletic aesthetic into the retro magazine design",
   "projectName": "The Daddy TGM",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-1",
-      "text": "Apply a 1970s retro visual theme across the entire app: warm browns, oranges, yellows, mustard, avocado greens, and burnt sienna color palette; retro serif fonts for headings/masthead; typewriter-style monospace font for body text; CSS-simulated aged paper/newsprint texture background (grain, slight yellowing, subtle vignette); decorative retro borders, groovy dividers, and period-appropriate ornamental elements.",
+      "id": "REQ-13",
+      "text": "Introduce early 2000s athletic/sports visual accents into the existing 1970s retro theme across the entire app. Add bold condensed sans-serif sport fonts (e.g., Impact-style or a condensed athletic face) for select headings, callouts, and nav hover states. Incorporate jersey-style large numerals for issue numbers and page indicators. Add dynamic diagonal stripe or swoosh motifs as decorative dividers and section borders — rendered in CSS — using the existing retro color palette (rust, mustard, avocado) augmented with crisp white and a deep navy or black for sporty contrast. Keep the 1970s newsprint base intact; the athletic elements should feel like a retro sports magazine crossover, not a full rebrand.",
       "target": "frontend",
       "source": {
         "messageIds": [
           "msg-1"
         ],
         "quotes": [
-          "1970s retro aesthetic",
-          "Aged paper texture background (use CSS to simulate)",
-          "Grainy, newsprint-style look",
-          "Decorative borders, retro dividers, groovy design elements"
+          "give a little early 200s athletic in it"
         ]
       },
       "acceptanceCriteria": [
-        "Color palette is strictly warm earth tones: browns, oranges, mustard yellows, avocado greens, burnt sienna — no cool blues or purples",
-        "Headings use a bold retro serif font reminiscent of 70s magazine mastheads",
-        "Body text uses a typewriter/monospace-style font",
-        "Background simulates aged newsprint via CSS (texture, grain, slight yellowing)",
-        "Decorative horizontal dividers and ornamental borders are used between sections"
-      ]
-    },
-    {
-      "id": "REQ-2",
-      "text": "Display a prominent magazine masthead at the top of every page reading 'THE DADDY \"TGM\"' in large, bold retro lettering with the tagline 'The Grooviest Rag on the Rack' beneath it, styled as a 1970s magazine logo.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-1"
-        ],
-        "quotes": [
-          "The magazine logo/masthead: THE DADDY \"TGM\" in big bold retro lettering with a tagline like \"The Grooviest Rag on the Rack\""
-        ]
-      },
-      "acceptanceCriteria": [
-        "Masthead text 'THE DADDY \"TGM\"' is prominently displayed at the top",
-        "Tagline 'The Grooviest Rag on the Rack' appears below the masthead",
-        "Masthead uses oversized bold retro serif typography",
-        "Masthead is visible on all pages/routes"
-      ]
-    },
-    {
-      "id": "REQ-3",
-      "text": "Implement a top navigation bar with five links: Home, Read Issue, Archive, The Soapbox, and About. Style navigation in the retro 1970s theme with period-appropriate typography and hover effects.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-1"
-        ],
-        "quotes": [
-          "Home",
-          "Read Issue",
-          "Archive",
-          "The Soapbox",
-          "About"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Navigation contains exactly: Home, Read Issue, Archive, The Soapbox, About",
-        "Active route is visually highlighted",
-        "Navigation is styled with retro 70s aesthetic",
-        "All navigation links route to their respective pages"
-      ]
-    },
-    {
-      "id": "REQ-4",
-      "text": "Implement a date-based daily issue system: use JavaScript's `new Date()` to compute a deterministic daily issue number (e.g., days since a fixed epoch date). Each calendar day maps to exactly one issue number. Store the list of accessed issue dates in localStorage so the archive can track all previously viewed issues.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-1"
-        ],
-        "quotes": [
-          "Every 'day' a new issue is generated and displayed (use a date-based system — use JavaScript `new Date()` to seed a daily issue number)",
-          "Past issues are kept — there should be an Archive page listing all past issues by date"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Today's issue number is computed deterministically from the current date",
-        "Same date always produces the same issue number",
-        "Each new date visited is saved to localStorage",
-        "Issue number is displayed on the Home and Reader pages"
-      ]
-    },
-    {
-      "id": "REQ-5",
-      "text": "Build a seeded pseudo-random content generation system: given a numeric seed (the daily issue number), produce a consistent, repeatable sequence of content selections for each of the 50 pages. Use a seedable PRNG (e.g., a simple mulberry32 or xorshift implementation in JS) so the same seed always yields the same 50-page layout.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-1"
-        ],
-        "quotes": [
-          "Use seeded random content generation so each day's issue is unique but consistent (same seed = same content for that day)"
-        ]
-      },
-      "acceptanceCriteria": [
-        "A seedable PRNG function is implemented in the frontend",
-        "Given the same date seed, the magazine always renders the same 50 pages",
-        "Different date seeds produce visibly different page orders and content selections",
-        "PRNG is used to shuffle/select from all content pools"
-      ]
-    },
-    {
-      "id": "REQ-6",
-      "text": "Create a large content library with at least 200 unique content items spread across the following categories, all written in 1970s Mad Magazine / National Lampoon satirical style with adult humor and cussing allowed (satire of fictional scenarios and movies, no real-person defamation): (1) Spoof movie poster/fake ad panels — parody movie concepts with fake taglines, fake credits, and humorous ASCII art or CSS-styled poster boxes. (2) Movie spoof comic strip panels — CSS div-based comic panels with stick-figure-style characters acting out parody movie scenes with funny dialogue. (3) Fake 1970s product advertisements — spoof products like hair tonics, cigarettes, cars, household goods with outrageous claims. (4) Sarcastic spoof movie reviews. (5) Funny fake letters to the editor. (6) Back-page full-bleed spoof ads or jokes.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-1"
-        ],
-        "quotes": [
-          "Generate a LOT of varied content — at least 200+ unique jokes, ads, movie spoofs, comic panels across the content pools so daily issues feel fresh",
-          "Make sure the content is genuinely funny and irreverent in a 1970s Mad Magazine / National Lampoon style"
-        ]
-      },
-      "acceptanceCriteria": [
-        "At least 200 distinct content items are defined across all categories combined",
-        "Each category has at least 20+ unique entries",
-        "Spoof movie posters include fake title, tagline, fake cast/credits, and ASCII or CSS art element",
-        "Comic strip panels have at least 2 dialogue-bearing 'panels' per strip, using CSS div layout",
-        "Fake product ads include product name, slogan, and humorous body copy",
-        "Spoof reviews include a movie title, star rating, and comedic review text",
-        "Letters to the editor include a fake name/location and a funny letter body",
-        "Back-page items are formatted as full-width/full-height page content"
-      ]
-    },
-    {
-      "id": "REQ-7",
-      "text": "Build the 50-page magazine reader with page-by-page navigation. Each page renders one content item from the seeded daily issue. Show 'Page X of 50' indicator. Provide Previous and Next buttons. The final page (page 50) is always the back-page content type. Apply a CSS page-turn or fade transition between pages.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-1"
-        ],
-        "quotes": [
-          "Page-by-page navigation (Previous / Next page buttons)",
-          "Page number displayed (\"Page 7 of 50\")",
-          "Each page has a different layout and content type",
-          "Smooth page transitions"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Reader displays 50 pages per issue",
-        "'Page X of 50' is shown at all times",
-        "Previous and Next buttons navigate between pages; Previous is disabled on page 1, Next on page 50",
-        "Page 50 always renders a back-page content item",
-        "A visible CSS transition (fade or slide) occurs when changing pages",
-        "Each page renders its content type with the appropriate layout template"
-      ]
-    },
-    {
-      "id": "REQ-8",
-      "text": "Build the Home page showing: today's issue cover (large masthead, issue number, date, a seeded featured spoof movie poster as the 'cover image'), a 'Read Today's Issue' CTA button, and a grid of 3–4 featured content teasers from the current issue (truncated snippets of ads, reviews, or comic titles with 'Read More' links into the reader at the correct page).",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-1"
-        ],
-        "quotes": [
-          "Home - Latest issue cover + featured content"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Home page displays today's issue number and date",
-        "A cover-style spoof movie poster is shown as the featured cover",
-        "A 'Read Today's Issue' button navigates to the Reader at page 1",
-        "3–4 content teasers are shown below the cover",
-        "Each teaser links to the reader at the correct page number"
-      ]
-    },
-    {
-      "id": "REQ-9",
-      "text": "Build the Archive page listing all previously visited issue dates stored in localStorage. Each entry shows the issue date, issue number, and a 'Read Issue' link. Sort entries newest-first. If no past issues exist beyond today, show a message like 'Come back tomorrow for more groovy content, baby!'",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-1"
-        ],
-        "quotes": [
-          "Past issues are kept — there should be an Archive page listing all past issues by date, clickable to read them"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Archive page reads issue history from localStorage",
-        "Issues are listed newest-first with date and issue number",
-        "Each entry has a clickable 'Read Issue' link that loads the reader seeded for that date",
-        "Empty state message is shown when no past issues are recorded"
-      ]
-    },
-    {
-      "id": "REQ-10",
-      "text": "Build 'The Soapbox' community page styled like a social feed (X/Twitter layout) but fully themed in 1970s retro style. Users can type and submit posts (stored in localStorage). Each post displays a fake auto-generated 1970s-style username, a timestamp, and the post text. Each post has a 'Groovy!' like button showing a count. Posts support a reply thread — clicking 'Reply' opens an inline reply input and shows nested replies beneath the post. The feed scrolls vertically with newest posts at the top.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-1"
-        ],
-        "quotes": [
-          "A community posting page styled like X/Twitter layout but with 1970s theming",
-          "Users can type and post messages (stored in localStorage)",
-          "Posts show with a fake username, timestamp, and the message",
-          "Like button (thumbs up / groovy reaction) on each post",
-          "Reply functionality",
-          "Post feed scrolls like a social feed",
-          "Call it 'The Soapbox' or 'Groovy Speak'"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Users can type a message and submit a post",
-        "Posts are persisted to localStorage and survive page refresh",
-        "Each post shows a fake username, relative or absolute timestamp, and message text",
-        "Each post has a 'Groovy!' like button; clicking it increments the count and persists to localStorage",
-        "Each post has a 'Reply' button that reveals an inline reply input",
-        "Replies are displayed nested under their parent post",
-        "Feed is sorted newest-first",
-        "Fake usernames are generated deterministically (e.g., from a list of 70s-style names)",
-        "Page is styled in the retro 70s theme"
-      ]
-    },
-    {
-      "id": "REQ-11",
-      "text": "Build the About page as a satirical fake 'About Us' page written entirely in 1970s voice. Include a fake founding story, fake staff bios (editor-in-chief, staff writers, ad director, etc.) with absurd credentials, a fake address, and a humorous mission statement. Style it like an old magazine's inside-cover editorial page.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-1"
-        ],
-        "quotes": [
-          "About - Funny fake 'about us' page in 70s style"
-        ]
-      },
-      "acceptanceCriteria": [
-        "About page contains a fake founding story written in 1970s satirical voice",
-        "At least 4 fake staff bios with names and absurd credentials",
-        "A fake address and fake publication details are shown",
-        "A humorous mission statement is included",
-        "Layout mimics an old magazine editorial/colophon page"
-      ]
-    },
-    {
-      "id": "REQ-12",
-      "text": "Ensure the application is fully responsive but optimized primarily for desktop reading. On mobile, the reader should stack content vertically and navigation should collapse into a hamburger menu or similar compact control.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-1"
-        ],
-        "quotes": [
-          "Fully responsive but optimized for desktop reading"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Layout renders correctly on desktop (1280px+), tablet (768px), and mobile (375px)",
-        "Magazine reader is readable on all screen sizes",
-        "Navigation collapses on small screens"
+        "At least one bold condensed sans-serif athletic font is applied to issue numbers, page indicators, or section headers throughout the app",
+        "Issue number on the Home page and page indicator in the Reader use a large jersey-style numeral treatment",
+        "At least two decorative CSS diagonal stripe or swoosh dividers appear in the layout (e.g., between masthead and nav, or between content sections)",
+        "Sporty color accents (crisp white, deep navy or black) are introduced as highlights without overriding the core 1970s earth-tone palette",
+        "Navigation hover effects incorporate at least one athletic-style treatment (underline swoosh, bold transform, or stripe flash)",
+        "The overall look reads as a 1970s retro magazine with sports-mag energy — not a modern sports site"
       ]
     }
   ],
   "constraints": [
-    "All data persistence (archive history, soapbox posts, likes, replies) must use localStorage only — no backend storage",
-    "Content must be satire/parody of fictional movie scenarios — no defamation of real people",
-    "Adult humor and cussing are permitted within the content library",
-    "Seeded PRNG must be deterministic: same date seed always produces identical 50-page issue"
+    "Do not remove or override the core 1970s retro theme — earth tones, newsprint texture, retro serif masthead, and monospace body text must remain dominant",
+    "Do not edit any files under frontend/src/hooks/ or frontend/src/components/ui",
+    "All styling changes must use Tailwind CSS classes or the existing CSS custom properties in frontend/src/index.css and frontend/tailwind.config.js"
   ],
   "nonGoals": [
-    "No real user authentication or accounts",
-    "No backend canister logic — this is a fully frontend-driven app",
-    "No real payment or subscription features",
-    "No external API integrations",
-    "No real-time updates or WebSocket functionality"
+    "Full rebrand to a modern sports aesthetic",
+    "Adding actual sports content or sports-related pages",
+    "Replacing the existing retro serif masthead font",
+    "Any backend changes"
   ],
   "imageRequirements": {
-    "required": [
-      "Aged yellowed newsprint paper texture background tile, grainy and slightly uneven (newsprint-texture.dim_512x512.png)",
-      "THE DADDY TGM retro 1970s magazine masthead logo, bold funky serif lettering in orange and brown on cream background (tgm-masthead.dim_800x200.png)",
-      "Retro 1970s decorative horizontal divider ornament in burnt sienna and mustard yellow (retro-divider.dim_600x40.png)",
-      "Groovy 1970s style starburst badge graphic in orange and yellow (starburst-badge.dim_200x200.png)"
-    ],
+    "required": [],
     "edits": []
   }
 }

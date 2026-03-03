@@ -3,8 +3,11 @@ import React from 'react';
 export default function Masthead() {
   return (
     <div className="text-center py-4 px-4 relative overflow-hidden" style={{ background: 'linear-gradient(180deg, oklch(0.22 0.06 48) 0%, oklch(0.30 0.08 50) 100%)' }}>
-      {/* Decorative top border */}
-      <div className="w-full h-1 mb-3" style={{ background: 'repeating-linear-gradient(90deg, oklch(0.76 0.16 88) 0px, oklch(0.76 0.16 88) 8px, oklch(0.58 0.18 42) 8px, oklch(0.58 0.18 42) 16px)' }} />
+      {/* Decorative top border — retro stripe */}
+      <div className="w-full h-1 mb-1" style={{ background: 'repeating-linear-gradient(90deg, oklch(0.76 0.16 88) 0px, oklch(0.76 0.16 88) 8px, oklch(0.58 0.18 42) 8px, oklch(0.58 0.18 42) 16px)' }} />
+
+      {/* Athletic diagonal stripe accent — early 2000s energy */}
+      <div className="diagonal-stripe mb-2" />
 
       {/* Issue banner */}
       <div className="inline-block mb-1 px-4 py-0.5 text-xs font-subheading tracking-widest" style={{ background: 'oklch(0.76 0.16 88)', color: 'oklch(0.22 0.05 55)' }}>
@@ -42,8 +45,11 @@ export default function Masthead() {
         </p>
       </div>
 
+      {/* Athletic diagonal stripe accent below masthead */}
+      <div className="diagonal-stripe mt-2 mb-1" />
+
       {/* Decorative bottom border */}
-      <div className="w-full h-1 mt-3" style={{ background: 'repeating-linear-gradient(90deg, oklch(0.76 0.16 88) 0px, oklch(0.76 0.16 88) 8px, oklch(0.58 0.18 42) 8px, oklch(0.58 0.18 42) 16px)' }} />
+      <div className="w-full h-1 mt-1" style={{ background: 'repeating-linear-gradient(90deg, oklch(0.76 0.16 88) 0px, oklch(0.76 0.16 88) 8px, oklch(0.58 0.18 42) 8px, oklch(0.58 0.18 42) 16px)' }} />
     </div>
   );
 }
