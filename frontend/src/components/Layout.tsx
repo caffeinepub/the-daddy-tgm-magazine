@@ -8,7 +8,6 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   const year = new Date().getFullYear();
-  const appId = encodeURIComponent(typeof window !== 'undefined' ? window.location.hostname : 'tgm-magazine');
 
   return (
     <div className="min-h-screen flex flex-col vignette">
@@ -33,21 +32,8 @@ export default function Layout({ children }: LayoutProps) {
           <p className="font-subheading text-xs tracking-widest mb-1" style={{ color: 'oklch(0.76 0.16 88)' }}>
             THE DADDY "TGM" · THE GROOVY MAGAZINE
           </p>
-          <p className="font-body text-xs mb-2" style={{ color: 'oklch(0.65 0.06 70)' }}>
+          <p className="font-body text-xs" style={{ color: 'oklch(0.65 0.06 70)' }}>
             © {year} The Daddy TGM. All rights reserved, baby. All content is satirical parody fiction.
-          </p>
-          <p className="font-body text-xs" style={{ color: 'oklch(0.55 0.06 65)' }}>
-            Built with{' '}
-            <span style={{ color: 'oklch(0.65 0.18 25)' }}>♥</span>
-            {' '}using{' '}
-            <a
-              href={`https://caffeine.ai/?utm_source=Caffeine-footer&utm_medium=referral&utm_content=${appId}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ color: 'oklch(0.76 0.16 88)', textDecoration: 'underline' }}
-            >
-              caffeine.ai
-            </a>
           </p>
         </div>
       </footer>

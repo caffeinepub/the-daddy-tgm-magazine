@@ -1,98 +1,35 @@
 {
   "kind": "build_request",
-  "title": "Add Classifieds Section to The Daddy TGM",
-  "projectName": "The Daddy TGM",
+  "title": "Remove publish details UI element",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-14",
-      "text": "Create a Classifieds page (route: /classifieds) accessible from the top navigation bar alongside the existing five links. The page should be fully styled in the 1970s retro / early 2000s athletic crossover theme consistent with the rest of the app.",
+      "id": "REQ-18",
+      "text": "Remove the 'publish detail' UI element (the caffeine.ai attribution or any deployment/publish metadata display) from the app's layout or footer so it is no longer visible to users.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-8"
+          "msg-latest"
         ],
         "quotes": [
-          "a classifieds section"
+          "remove the publish detail thing"
         ]
       },
       "acceptanceCriteria": [
-        "A new 'Classifieds' nav link appears in the Navigation component alongside Home, Read Issue, Archive, The Soapbox, and About.",
-        "The page is reachable at /classifieds and renders without errors.",
-        "The page header reads something like 'THE DADDY TGM CLASSIFIEDS' or 'WANT ADS & ODDITIES' in the retro masthead style.",
-        "The page uses the existing retro color palette, newsprint texture, and athletic accent motifs."
-      ]
-    },
-    {
-      "id": "REQ-15",
-      "text": "Build a static library of at least 30 fake spoof classified ads written in 1970s Mad Magazine / National Lampoon satirical voice with adult humor and cussing allowed (no real-person defamation). Categories should include: FOR SALE (absurd junk), PERSONALS (outrageous lonely-hearts), HELP WANTED (ridiculous job listings), SERVICES OFFERED (quack remedies, con-artist trades), LOST & FOUND, and ANNOUNCEMENTS. Each ad entry should have: a category label, a bold headline, ad body text (1–4 lines), and an optional fake phone number or PO Box.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-8"
-        ],
-        "quotes": [
-          "a classifieds section"
-        ]
-      },
-      "acceptanceCriteria": [
-        "At least 30 unique spoof classified ad objects are defined in a classifiedsLibrary data file (e.g., frontend/src/data/classifiedsLibrary.ts).",
-        "Each ad has a category, headline, body text, and optional contact info.",
-        "Ad text is written in satirical 1970s voice consistent with the existing contentLibrary.ts style.",
-        "At least 5 distinct categories are represented."
-      ]
-    },
-    {
-      "id": "REQ-16",
-      "text": "Render the classifieds on the Classifieds page in a multi-column newspaper-style grid layout. Ads should be grouped by category with bold category headers (e.g., '★ FOR SALE ★', '♥ PERSONALS ♥') as section dividers styled with retro ornamental borders and diagonal stripe accents. Each ad card should have a typewriter-style monospace body, retro border, and subtle aged-paper background.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-8"
-        ],
-        "quotes": [
-          "a classifieds section"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Ads are displayed in a 2–3 column grid on desktop, single column on mobile.",
-        "Category section headers are visually distinct with retro ornamental styling and athletic diagonal stripe dividers.",
-        "Each ad card uses monospace/typewriter font for body text, consistent with the app's retro type treatment.",
-        "The layout is responsive — stacks to a single column on small screens."
-      ]
-    },
-    {
-      "id": "REQ-17",
-      "text": "Add a 'Place Your Own Ad' submission form at the top or bottom of the Classifieds page. Users select a category from a dropdown, enter a headline (max 60 chars) and ad body (max 200 chars), then submit. Submitted ads are stored in localStorage and appear at the top of the relevant category section. Each user-submitted ad should display a fake auto-generated 1970s-style username (reuse the existing soapboxUtils fake username generator) and a submission timestamp.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-8"
-        ],
-        "quotes": [
-          "a classifieds section"
-        ]
-      },
-      "acceptanceCriteria": [
-        "A submission form with category dropdown, headline field, and body textarea is rendered on the Classifieds page.",
-        "Character limits (60 for headline, 200 for body) are enforced with visible counters.",
-        "Submitted ads persist in localStorage and survive page refresh.",
-        "User-submitted ads appear at the top of their category, labelled with a fake 1970s username and timestamp.",
-        "The form is styled consistently with the retro theme (no plain HTML default styling)."
+        "No publish detail, deployment info, or caffeine.ai attribution text is visible anywhere in the app UI.",
+        "The rest of the layout (masthead, navigation, footer copyright, content) remains intact and unaffected.",
+        "The change is applied globally across all pages."
       ]
     }
   ],
   "constraints": [
-    "Do not modify any file listed in frontend.immutablePaths.",
-    "All new components and data files must follow the existing TypeScript conventions in the frontend/src directory.",
-    "Reuse existing retro/athletic CSS utility classes from frontend/src/index.css and tailwind.config.js — do not introduce new color or font tokens.",
-    "Reuse the fake username generator from frontend/src/utils/soapboxUtils.ts for user-submitted ads."
+    "Do not modify any files under frontend/src/hooks/ or frontend/src/components/ui/.",
+    "Do not alter any content, navigation links, or styling beyond removing the publish detail element."
   ],
   "nonGoals": [
-    "No backend persistence — all classifieds data (static library and user submissions) lives in the frontend.",
-    "No moderation, reporting, or admin tools for submitted ads.",
-    "No integration with the daily seeded issue system — the Classifieds page is a standalone section, not part of the 50-page reader.",
-    "No images or media uploads in ad submissions."
+    "Redesigning the footer or any other layout section.",
+    "Removing the copyright notice or any other footer text beyond the publish detail.",
+    "Any backend changes."
   ],
   "imageRequirements": {
     "required": [],

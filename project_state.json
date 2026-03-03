@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 7,
+  "projectStateVersion": 9,
   "summary": "A fully functional retro online magazine called 'The Daddy TGM' (The Groovy Magazine) — a satirical 1970s-style comedy magazine built in pure HTML/CSS/JS with daily seeded issues, 50-page reader, spoof movie posters, fake ads, comic strips, movie reviews, letters to the editor, an archive system, a community soapbox (localStorage-based social feed), and a fake about page. Now incorporating early 2000s athletic/sports aesthetic influences alongside the 1970s retro theme.",
   "architectural_notes": [
     "Pure HTML/CSS/JS — no backend; localStorage used for archive tracking and community posts",
@@ -146,6 +146,14 @@
       "title": "Add a 'Place Your Own Ad' submission form at the top or bottom of the Classifieds page. Users select a category from a dropdown, enter a headline (max 60 chars) and ad body (max 200 chars), then submit. Submitted ads are stored in localStorage and appear at the top of the relevant category section. Each user-submitted ad should display a fake auto-generated 1970s-style username (reuse the existing soapboxUtils fake username generator) and a submission timestamp.",
       "reqIds": [
         "REQ-17"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-the-publish-detail-ui-element-the-caffeine-ai-attribution-or-any-deployment-publish-metadata-display-from-the-app-s-layout-or-footer-so-it-is-no-longer-visible-to-users",
+      "title": "Remove the 'publish detail' UI element (the caffeine.ai attribution or any deployment/publish metadata display) from the app's layout or footer so it is no longer visible to users.",
+      "reqIds": [
+        "REQ-18"
       ],
       "version": 1
     }
