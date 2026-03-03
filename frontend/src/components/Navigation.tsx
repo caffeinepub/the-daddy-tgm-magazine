@@ -7,6 +7,7 @@ const navLinks = [
   { to: '/reader', label: 'Read Issue' },
   { to: '/archive', label: 'Archive' },
   { to: '/soapbox', label: 'The Soapbox' },
+  { to: '/classifieds', label: 'Classifieds' },
   { to: '/about', label: 'About' },
 ];
 

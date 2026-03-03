@@ -5,6 +5,7 @@ import ReaderPage from './pages/ReaderPage';
 import ArchivePage from './pages/ArchivePage';
 import SoapboxPage from './pages/SoapboxPage';
 import AboutPage from './pages/AboutPage';
+import ClassifiedsPage from './pages/ClassifiedsPage';
 
 const rootRoute = createRootRoute({
   component: () => (
@@ -44,12 +45,19 @@ const aboutRoute = createRoute({
   component: AboutPage,
 });
 
+const classifiedsRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/classifieds',
+  component: ClassifiedsPage,
+});
+
 const routeTree = rootRoute.addChildren([
   homeRoute,
   readerRoute,
   archiveRoute,
   soapboxRoute,
   aboutRoute,
+  classifiedsRoute,
 ]);
 
 const router = createRouter({ routeTree });

@@ -2,16 +2,12 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-introduce-early-2000s-athletic-sports-visual-accents-into-the-existing-1970s-retro-theme-across-the-entire-app-add-bold-condensed-sans-serif-sport-fonts-e-g-impact-style-or-a-condensed-athletic-face-for-select-headings-callouts-and-nav-hover-states-incorporate-jersey-style-large-numerals-for-issue-numbers-and-page-indicators-add-dynamic-diagonal-stripe-or-swoosh-motifs-as-decorative-dividers-and-section-borders-rendered-in-css-using-the-existing-retro-color-palette-rust-mustard-avocado-augmented-with-crisp-white-and-a-deep-navy-or-black-for-sporty-contrast-keep-the-1970s-newsprint-base-intact-the-athletic-elements-should-feel-like-a-retro-sports-magazine-crossover-not-a-full-rebrand",
-      "featureTitle": "Introduce early 2000s athletic/sports visual accents into the existing 1970s retro theme across the entire app. Add bold condensed sans-serif sport fonts (e.g., Impact-style or a condensed athletic face) for select headings, callouts, and nav hover states. Incorporate jersey-style large numerals for issue numbers and page indicators. Add dynamic diagonal stripe or swoosh motifs as decorative dividers and section borders — rendered in CSS — using the existing retro color palette (rust, mustard, avocado) augmented with crisp white and a deep navy or black for sporty contrast. Keep the 1970s newsprint base intact; the athletic elements should feel like a retro sports magazine crossover, not a full rebrand.",
+      "featureId": "feature-create-a-classifieds-page-route-classifieds-accessible-from-the-top-navigation-bar-alongside-the-existing-five-links-the-page-should-be-fully-styled-in-the-1970s-retro-early-2000s-athletic-crossover-theme-consistent-with-the-rest-of-the-app",
+      "featureTitle": "Create a Classifieds page (route: /classifieds) accessible from the top navigation bar alongside the existing five links. The page should be fully styled in the 1970s retro / early 2000s athletic crossover theme consistent with the rest of the app.",
       "files": [
-        "frontend/src/components/Layout.tsx",
-        "frontend/src/components/Masthead.tsx",
+        "frontend/src/App.tsx",
         "frontend/src/components/Navigation.tsx",
-        "frontend/src/index.css",
-        "frontend/src/pages/HomePage.tsx",
-        "frontend/src/pages/ReaderPage.tsx",
-        "frontend/tailwind.config.js"
+        "frontend/src/pages/ClassifiedsPage.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -21,7 +17,66 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-13"
+        "REQ-14"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-a-static-library-of-at-least-30-fake-spoof-classified-ads-written-in-1970s-mad-magazine-national-lampoon-satirical-voice-with-adult-humor-and-cussing-allowed-no-real-person-defamation-categories-should-include-for-sale-absurd-junk-personals-outrageous-lonely-hearts-help-wanted-ridiculous-job-listings-services-offered-quack-remedies-con-artist-trades-lost-found-and-announcements-each-ad-entry-should-have-a-category-label-a-bold-headline-ad-body-text-1-4-lines-and-an-optional-fake-phone-number-or-po-box",
+      "featureTitle": "Build a static library of at least 30 fake spoof classified ads written in 1970s Mad Magazine / National Lampoon satirical voice with adult humor and cussing allowed (no real-person defamation). Categories should include: FOR SALE (absurd junk), PERSONALS (outrageous lonely-hearts), HELP WANTED (ridiculous job listings), SERVICES OFFERED (quack remedies, con-artist trades), LOST & FOUND, and ANNOUNCEMENTS. Each ad entry should have: a category label, a bold headline, ad body text (1–4 lines), and an optional fake phone number or PO Box.",
+      "files": [
+        "frontend/src/data/classifiedsLibrary.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-15"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-render-the-classifieds-on-the-classifieds-page-in-a-multi-column-newspaper-style-grid-layout-ads-should-be-grouped-by-category-with-bold-category-headers-e-g-for-sale-personals-as-section-dividers-styled-with-retro-ornamental-borders-and-diagonal-stripe-accents-each-ad-card-should-have-a-typewriter-style-monospace-body-retro-border-and-subtle-aged-paper-background",
+      "featureTitle": "Render the classifieds on the Classifieds page in a multi-column newspaper-style grid layout. Ads should be grouped by category with bold category headers (e.g., '★ FOR SALE ★', '♥ PERSONALS ♥') as section dividers styled with retro ornamental borders and diagonal stripe accents. Each ad card should have a typewriter-style monospace body, retro border, and subtle aged-paper background.",
+      "files": [
+        "frontend/src/components/ClassifiedAdCard.tsx",
+        "frontend/src/components/ClassifiedsGrid.tsx",
+        "frontend/src/pages/ClassifiedsPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-16"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-a-place-your-own-ad-submission-form-at-the-top-or-bottom-of-the-classifieds-page-users-select-a-category-from-a-dropdown-enter-a-headline-max-60-chars-and-ad-body-max-200-chars-then-submit-submitted-ads-are-stored-in-localstorage-and-appear-at-the-top-of-the-relevant-category-section-each-user-submitted-ad-should-display-a-fake-auto-generated-1970s-style-username-reuse-the-existing-soapboxutils-fake-username-generator-and-a-submission-timestamp",
+      "featureTitle": "Add a 'Place Your Own Ad' submission form at the top or bottom of the Classifieds page. Users select a category from a dropdown, enter a headline (max 60 chars) and ad body (max 200 chars), then submit. Submitted ads are stored in localStorage and appear at the top of the relevant category section. Each user-submitted ad should display a fake auto-generated 1970s-style username (reuse the existing soapboxUtils fake username generator) and a submission timestamp.",
+      "files": [
+        "frontend/src/components/ClassifiedSubmissionForm.tsx",
+        "frontend/src/components/ClassifiedsGrid.tsx",
+        "frontend/src/pages/ClassifiedsPage.tsx",
+        "frontend/src/utils/classifiedsUtils.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-17"
       ],
       "confidence": "high"
     }

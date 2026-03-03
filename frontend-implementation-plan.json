@@ -1,54 +1,109 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Blend early 2000s athletic aesthetic into the retro magazine design",
+  "title": "Add Classifieds Section to The Daddy TGM",
   "requirements": [
     {
-      "id": "REQ-13",
-      "summary": "Introduce early 2000s athletic/sports visual accents (bold condensed fonts, jersey numerals, diagonal stripe motifs, sporty color accents) into the existing 1970s retro theme throughout the app while preserving the core newsprint aesthetic",
+      "id": "REQ-14",
+      "summary": "Create a Classifieds page accessible from the top navigation bar, styled in the 1970s retro / early 2000s athletic crossover theme",
       "acceptanceCriteria": [
-        "At least one bold condensed sans-serif athletic font is applied to issue numbers, page indicators, or section headers throughout the app",
-        "Issue number on the Home page and page indicator in the Reader use a large jersey-style numeral treatment",
-        "At least two decorative CSS diagonal stripe or swoosh dividers appear in the layout (e.g., between masthead and nav, or between content sections)",
-        "Sporty color accents (crisp white, deep navy or black) are introduced as highlights without overriding the core 1970s earth-tone palette",
-        "Navigation hover effects incorporate at least one athletic-style treatment (underline swoosh, bold transform, or stripe flash)",
-        "The overall look reads as a 1970s retro magazine with sports-mag energy — not a modern sports site"
+        "A new 'Classifieds' nav link appears in the Navigation component alongside Home, Read Issue, Archive, The Soapbox, and About.",
+        "The page is reachable at /classifieds and renders without errors.",
+        "The page header reads something like 'THE DADDY TGM CLASSIFIEDS' or 'WANT ADS & ODDITIES' in the retro masthead style.",
+        "The page uses the existing retro color palette, newsprint texture, and athletic accent motifs."
       ],
       "file_operations": [
         {
-          "path": "frontend/tailwind.config.js",
-          "operation": "modify",
-          "description": "Add bold condensed sans-serif athletic font family (e.g., 'Impact' or condensed system stack) to the theme.fontFamily configuration. Add sporty color accents (crisp white as 'sportWhite', deep navy as 'sportNavy') to the theme.colors palette while preserving all existing 1970s earth tones (rust, mustard, avocado, paper, ink)."
+          "path": "frontend/src/pages/ClassifiedsPage.tsx",
+          "operation": "create",
+          "description": "Create the Classifieds page component with a retro-styled masthead header ('THE DADDY TGM CLASSIFIEDS' or 'WANT ADS & ODDITIES'), athletic diagonal stripe dividers, and a container ready to render classified ads. Use the existing retro color palette, newsprint texture from frontend/public/assets/generated/newsprint-texture.dim_512x512.png, and athletic accent motifs consistent with other pages."
         },
         {
-          "path": "frontend/src/index.css",
+          "path": "frontend/src/App.tsx",
           "operation": "modify",
-          "description": "Import the athletic font family from Google Fonts or system fonts. Define CSS custom properties for sporty accent colors (--sport-white, --sport-navy). Add reusable Tailwind component classes for athletic styling: .athletic-heading (bold condensed font with tight letter-spacing), .jersey-number (extra-large bold condensed numeric style), .diagonal-stripe (CSS gradient or border treatment creating a swoosh/stripe divider), and .nav-athletic-hover (athletic-style hover effect with underline swoosh or bold transform). Ensure all new styles layer on top of existing retro base without overriding core newsprint textures or earth-tone palette."
-        },
-        {
-          "path": "frontend/src/components/Masthead.tsx",
-          "operation": "modify",
-          "description": "Add a decorative diagonal stripe or swoosh divider below the masthead using the .diagonal-stripe class or inline Tailwind CSS with sporty accent colors. The divider should use CSS gradients or borders to create a dynamic angled visual element that contrasts with the retro striped borders but does not replace them."
+          "description": "Register the new /classifieds route in the TanStack Router configuration, wrapping it in the Layout component alongside the existing five routes (Home, Reader, Archive, Soapbox, About)."
         },
         {
           "path": "frontend/src/components/Navigation.tsx",
           "operation": "modify",
-          "description": "Apply athletic-style hover effects to navigation links using the .nav-athletic-hover class or inline Tailwind utilities. Add a bold transform, underline swoosh, or stripe flash on hover that incorporates sporty accent colors (sportWhite, sportNavy). Ensure the base retro nav styling remains intact and the athletic treatment appears only on hover/active states."
+          "description": "Add a 'Classifieds' navigation link to the nav bar alongside Home, Read Issue, Archive, The Soapbox, and About. Ensure the link includes active-state highlighting and works in both desktop and mobile hamburger menu views."
+        }
+      ]
+    },
+    {
+      "id": "REQ-15",
+      "summary": "Build a static library of at least 30 fake spoof classified ads written in 1970s Mad Magazine / National Lampoon satirical voice",
+      "acceptanceCriteria": [
+        "At least 30 unique spoof classified ad objects are defined in a classifiedsLibrary data file (e.g., frontend/src/data/classifiedsLibrary.ts).",
+        "Each ad has a category, headline, body text, and optional contact info.",
+        "Ad text is written in satirical 1970s voice consistent with the existing contentLibrary.ts style.",
+        "At least 5 distinct categories are represented."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/data/classifiedsLibrary.ts",
+          "operation": "create",
+          "description": "Define TypeScript interfaces for classified ad objects (category, headline, body, optional contact info) and create an exported array of at least 30 spoof classified ads across at least 5 categories: FOR SALE (absurd junk), PERSONALS (outrageous lonely-hearts), HELP WANTED (ridiculous job listings), SERVICES OFFERED (quack remedies, con-artist trades), LOST & FOUND, and ANNOUNCEMENTS. Write ad text in satirical 1970s Mad Magazine / National Lampoon voice with adult humor and cussing allowed (no real-person defamation), consistent with the existing contentLibrary.ts style."
+        }
+      ]
+    },
+    {
+      "id": "REQ-16",
+      "summary": "Render the classifieds on the Classifieds page in a multi-column newspaper-style grid layout grouped by category",
+      "acceptanceCriteria": [
+        "Ads are displayed in a 2–3 column grid on desktop, single column on mobile.",
+        "Category section headers are visually distinct with retro ornamental styling and athletic diagonal stripe dividers.",
+        "Each ad card uses monospace/typewriter font for body text, consistent with the app's retro type treatment.",
+        "The layout is responsive — stacks to a single column on small screens."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/ClassifiedAdCard.tsx",
+          "operation": "create",
+          "description": "Create a reusable classified ad card component that renders a single ad with: category label, bold headline, monospace/typewriter body text (1–4 lines), optional contact info, retro border styling, and subtle aged-paper background. Use the existing retro type treatment and newsprint texture consistent with other retro-styled components."
         },
         {
-          "path": "frontend/src/pages/HomePage.tsx",
-          "operation": "modify",
-          "description": "Apply jersey-style numeral treatment to the issue number display using the .jersey-number class and athletic font family. The issue number should render as a large, bold, condensed numeric element with sporty color accents. Add a second decorative diagonal stripe or swoosh divider between the issue header and the cover feature section using CSS with the existing retro color palette plus sporty accents."
+          "path": "frontend/src/components/ClassifiedsGrid.tsx",
+          "operation": "create",
+          "description": "Create a responsive grid layout component that groups classified ads by category. Render bold category headers (e.g., '★ FOR SALE ★', '♥ PERSONALS ♥') with retro ornamental borders and athletic diagonal stripe dividers as section dividers. Display ads in a 2–3 column grid on desktop, single column on mobile, using ClassifiedAdCard for each ad. Ensure the layout is fully responsive and stacks to a single column on small screens."
         },
         {
-          "path": "frontend/src/pages/ReaderPage.tsx",
+          "path": "frontend/src/pages/ClassifiedsPage.tsx",
           "operation": "modify",
-          "description": "Apply jersey-style numeral treatment to the page indicator (current page number) using the .jersey-number class and athletic font family. The page number should be large, bold, and condensed with sporty color highlights. Ensure prev/next navigation buttons retain their retro base styling while optionally incorporating subtle athletic accents on hover."
+          "description": "Import the classifiedsLibrary data and the ClassifiedsGrid component. Render the ClassifiedsGrid below the page header, passing the static classified ads library data to it for display."
+        }
+      ]
+    },
+    {
+      "id": "REQ-17",
+      "summary": "Add a 'Place Your Own Ad' submission form on the Classifieds page with localStorage persistence and fake username generation",
+      "acceptanceCriteria": [
+        "A submission form with category dropdown, headline field, and body textarea is rendered on the Classifieds page.",
+        "Character limits (60 for headline, 200 for body) are enforced with visible counters.",
+        "Submitted ads persist in localStorage and survive page refresh.",
+        "User-submitted ads appear at the top of their category, labelled with a fake 1970s username and timestamp.",
+        "The form is styled consistently with the retro theme (no plain HTML default styling)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/utils/classifiedsUtils.ts",
+          "operation": "create",
+          "description": "Create utility functions for managing user-submitted classified ads in localStorage: save a new ad (with auto-generated fake 1970s username from soapboxUtils.ts and timestamp), retrieve all user ads, and delete/clear ads. Reuse the existing fake username generator from frontend/src/utils/soapboxUtils.ts for consistency."
         },
         {
-          "path": "frontend/src/components/Layout.tsx",
+          "path": "frontend/src/components/ClassifiedSubmissionForm.tsx",
+          "operation": "create",
+          "description": "Create a submission form component with: category dropdown (matching the 5+ categories from classifiedsLibrary), headline input field (max 60 chars with visible counter), body textarea (max 200 chars with visible counter), and a submit button. On submit, call the classifiedsUtils save function to persist the ad to localStorage with a fake 1970s username and timestamp. Style the form consistently with the retro theme using existing CSS utility classes from frontend/src/index.css and tailwind.config.js (no plain HTML default styling)."
+        },
+        {
+          "path": "frontend/src/pages/ClassifiedsPage.tsx",
           "operation": "modify",
-          "description": "Add at least one additional decorative diagonal stripe or swoosh divider between major layout sections (e.g., between navigation and main content area, or before the footer) using CSS gradients or borders with the retro palette augmented by sporty accents. Ensure the overall layout preserves the 1970s newsprint aesthetic and the athletic elements feel like decorative overlays rather than a rebrand."
+          "description": "Import ClassifiedSubmissionForm and classifiedsUtils. Render the ClassifiedSubmissionForm at the top or bottom of the page. Load user-submitted ads from localStorage on mount and merge them with the static classifiedsLibrary, displaying user ads at the top of their respective category sections with labels showing fake 1970s username and timestamp. Ensure the page re-renders after a new ad is submitted to show the updated list."
+        },
+        {
+          "path": "frontend/src/components/ClassifiedsGrid.tsx",
+          "operation": "modify",
+          "description": "Modify the ClassifiedsGrid component to accept both static and user-submitted ads as props. Render user-submitted ads at the top of each category section, visually distinguished (e.g., with a subtle badge or label indicating 'READER AD') and including the fake username and timestamp. Ensure user ads use the same ClassifiedAdCard component for consistent styling."
         }
       ]
     }
